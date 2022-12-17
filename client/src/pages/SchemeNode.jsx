@@ -1,32 +1,43 @@
 import { Container } from '@mantine/core'
-import { useSelector } from 'react-redux'
+import { Button, Text, Spoiler } from '../components'
+import { ServerErrorPage } from './500'
+import { useGetSchemeNodeQuery } from '../api/botApi'
 import { useParams } from 'react-router-dom'
-import { selectSchemeNode } from '../store/botReducer'
-import { Button, Text } from '../components'
 
 const componentToType = {
    text: Text,
-   spoiler: Text,
+   spoiler: Spoiler,
    button: Button
 }
 
 export const SchemeNode = () => {
-   const { schemeId, schemeNodeId } = useParams()
-   const { elements } = useSelector(selectSchemeNode(schemeId, schemeNodeId))
+   const { schemeNodeId } = useParams()
+   const { data: schemeNode, isLoading, isError, isSuccess } = useGetSchemeNodeQuery(schemeNodeId)
 
-   return (
-      <Container>
-         {elements?.map(({ elementType, elementText, nextSchemeId, nextSchemeNodeId }) => {
-            console.log(elementType, elementText, nextSchemeId, nextSchemeNodeId)
+   if (isLoading) {
+      return <h2>Loading...</h2>
+   }
 
-            const Component = componentToType[elementType]
-            const props = {
-               children: elementText,
-               key: elementText.substring(0, 12),
-               ...(elementType === 'button' && { nextSchemeId, nextSchemeNodeId })
-            }
-            return <Component {...props} />
-         })}
-      </Container>
-   )
+   if (isError) {
+      return <ServerErrorPage />
+   }
+   if (isSuccess) {
+      const { elements } = schemeNode
+      return (
+         <Container>
+            {elements?.map(({ elementType, elementText, schemeNodeId }) => {
+               console.log(elementType, elementText, schemeNodeId)
+
+               const Component = componentToType[elementType]
+               const props = {
+                  children: elementText,
+                  key: elementText.substring(0, 8),
+                  ...(elementType === 'button' && { schemeNodeId })
+               }
+               return <Component {...props} />
+            })}
+         </Container>
+      )
+   }
+   return <h3>Strange...</h3>
 }
