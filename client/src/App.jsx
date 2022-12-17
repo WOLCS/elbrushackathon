@@ -1,6 +1,10 @@
-import {Header} from './Header';
+import { AppRoutes } from './routes/Routes.jsx';
+
 export const App = () => {
-  return(
-    <Header />
-  )
-};
+  return (
+  <AppRoutes />
+  );
+}
+    
+  
+  
