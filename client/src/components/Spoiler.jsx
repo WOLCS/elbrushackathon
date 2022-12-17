@@ -1,10 +1,9 @@
 import React from 'react'
 import { Text } from '@mantine/core';
 
-const TextPage = () => {
+export const Spoiler = () => {
   return (
-    <Text fz="xl">TEXT</Text>
+    <Text fz="xl">Default text</Text>
   )
 }
 
-export default TextPage

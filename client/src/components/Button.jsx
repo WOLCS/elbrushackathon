@@ -4,7 +4,7 @@ import { Button } from '@mantine/core';
 
 
 
-const ButtonItem = () => {
+export const ButtonItem = () => {
 
 
   return (
@@ -14,4 +14,3 @@ const ButtonItem = () => {
   )
 }
 
-export default ButtonItem
