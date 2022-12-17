@@ -6,7 +6,7 @@ export const AppRoutes = ({ children }) => {
    return (
       <>
          <Routes>
-            <Route path="/:schemeId/:schemeNodeId" element={<SchemeNode />} />
+            <Route path="/:schemeNodeId" element={<SchemeNode />} />
             <Route path="/" element={<HomePage />} />
             {children}
          </Routes>
