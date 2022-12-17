@@ -25,6 +25,7 @@ const Element = sequelize.define("Elements", {
   elementId: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   elementType: { type: DataTypes.STRING, allowNull: false },
   elementText: { type: DataTypes.STRING, allowNull: false },
+  elementLink: { type: DataTypes.STRING },
   schemeId: { type: DataTypes.INTEGER },
   schemeNodeId: { type: DataTypes.INTEGER },
 });
