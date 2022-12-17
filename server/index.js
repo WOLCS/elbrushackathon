@@ -16,32 +16,33 @@ bot.on("message", async (msg) => {
   const text = msg.text;
 
   if (text === "/start") {
-    
-    await bot.sendMessage(chatId, 'Выбери опцию', {
+    await bot.sendMessage(chatId, "Выбери опцию", {
       parse_mode: "html",
       reply_markup: {
-          inline_keyboard: [
-            [{ text: "Пройти обучение", callback_data: "1"  }],
-            [{ text: "Скачать схему", callback_data: "1"  }],
-            [{ text: "Получить мем", callback_data: "1" }],
-            [
-              {
-                text: "Написать карьерному коучу Наде",
-                url: "https://t.me/krutikovanad",
-              }
-            ],
-          ]
-      }
-  })
+        inline_keyboard: [
+          [{ text: "Пройти обучение", web_app: { url: "https://google.com" } }],
+          [{ text: "Скачать схему", callback_data: "1" }],
+          [{ text: "Получить мем", callback_data: "2" }],
+          [
+            {
+              text: "Написать карьерному коучу Наде",
+              url: "https://t.me/krutikovanad",
+            },
+          ],
+        ],
+      },
+    });
   }
+});
 
-  if (msg?.text === "Написать карьерному коучу Наде") {
-    try {
-      await bot.sendMessage(chatId, "Test");
-    } catch (e) {
-      console.log(e);
-    }
+bot.on('callback_query', async (msg) => {
+  const chatId = msg.message.chat.id;
+  if (msg.data === '1') {
+    await bot.sendMessage(chatId, 'Отправляю Вашу схему!');
+    return bot.sendDocument(chatId, 'document.pdf');
   }
+  
+  return bot.sendMessage(chatId, 'Ваша команда не распознана, попробуйте еще раз!');
 });
 
 const PORT = 8000;
