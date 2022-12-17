@@ -6,7 +6,6 @@ import { MantineProvider } from '@mantine/core'
 import { store } from './store/store'
 import { App } from './App'
 
-// console.log(store.getState())
 
 ReactDOM.createRoot(document.getElementById('root')).render(
    <React.StrictMode>
@@ -17,5 +16,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             </MantineProvider>
          </BrowserRouter>
       </StoreProvider>
+
    </React.StrictMode>
 )
