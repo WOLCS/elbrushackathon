@@ -1,9 +1,5 @@
-import React from 'react'
-import { Text } from '@mantine/core';
+import { Text } from '@mantine/core'
 
 export const Spoiler = () => {
-  return (
-    <Text fz="xl">Default text</Text>
-  )
+   return <Text fz="xl">Default text</Text>
 }
-
