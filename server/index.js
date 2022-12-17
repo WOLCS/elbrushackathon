@@ -27,7 +27,7 @@ bot.on("message", async (msg) => {
             [
               {
                 text: "Написать карьерному коучу Наде",
-                url: "tg://user?id=598025676",
+                url: "https://t.me/krutikovanad",
               }
             ],
           ]
