@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom'
-import { Button as MantineButton } from '@mantine/core'
+import { Button as BaseButton } from '@mantine/core'
 
-export const Button = ({ children, nextSchemeId, nextSchemeNodeId }) => {
+export const Button = ({ children, nextSchemeNodeId }) => {
    return (
-      <Link to={`/${nextSchemeId}/${nextSchemeNodeId}`}>
-         <MantineButton variant="gradient" gradient={{ from: 'indigo', to: 'cyan' }}>
+      <Link to={'/' + nextSchemeNodeId}>
+         <BaseButton fullWidth variant="gradient" gradient={{ from: 'indigo', to: 'cyan' }}>
             {children}
-         </MantineButton>
+         </BaseButton>
       </Link>
    )
 }
