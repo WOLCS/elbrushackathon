@@ -21,8 +21,8 @@ bot.on("message", async (msg) => {
       reply_markup: {
         inline_keyboard: [
           [{ text: "Пройти обучение", web_app: { url: "https://google.com" } }],
-          [{ text: "Скачать схему", callback_data: "1" }],
-          [{ text: "Получить мем", callback_data: "2" }],
+          [{ text: "Скачать схему", callback_data: "schema" }],
+          [{ text: "Получить мем", callback_data: "meme" }],
           [
             {
               text: "Написать карьерному коучу Наде",
@@ -35,14 +35,25 @@ bot.on("message", async (msg) => {
   }
 });
 
-bot.on('callback_query', async (msg) => {
+bot.on("callback_query", async (msg) => {
   const chatId = msg.message.chat.id;
-  if (msg.data === '1') {
-    await bot.sendMessage(chatId, 'Отправляю Вашу схему!');
-    return bot.sendDocument(chatId, 'document.pdf');
+  if (msg.data === "scheme") {
+    await bot.sendMessage(chatId, "Отправляю Вашу схему!");
+    return bot.sendDocument(chatId, "document.pdf");
   }
-  
-  return bot.sendMessage(chatId, 'Ваша команда не распознана, попробуйте еще раз!');
+
+  if (msg.data === "meme") {
+    await bot.sendMessage(chatId, "Лови мем!");
+    return bot.sendPhoto(
+      chatId,
+      "https://sun6-20.userapi.com/impg/E38H04ZuX2jg422-kLBQ-Xqh2TyLCEL7SQ0Ocw/xKfosj4dGlU.jpg?size=599x1059&quality=95&sign=8d16578f6356461ab4b91ce7c2588562&c_uniq_tag=8SrkPDwrXg0UsTR3coc61G_9wVz2Nzi8nrlHG03G1qA&type=album"
+    );
+  }
+
+  return bot.sendMessage(
+    chatId,
+    "Ваша команда не распознана, попробуйте еще раз!"
+  );
 });
 
 const PORT = 8000;
