@@ -1,0 +1,22 @@
+.header {
+    padding-left: 40px;
+  padding-right: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 70px;
+  background-color: rgb(108, 26, 149);
+}
+.navButton {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    background-color: rgb(108, 26, 149);
+  } 
+  .navButton:hover {
+    text-decoration: underline;
+    color: rgb(108, 26, 149);
+  }
