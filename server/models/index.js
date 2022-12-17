@@ -29,6 +29,17 @@ const Element = sequelize.define("Elements", {
   schemeNodeId: { type: DataTypes.INTEGER },
 });
 
+const User = sequelize.define("Users", {
+  userId: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  login: { type: DataTypes.STRING, allowNull: false },
+  password: { type: DataTypes.STRING, allowNull: false },
+  role: { type: DataTypes.STRING, allowNull: false },
+});
+
 Scheme.hasMany(SchemeNode, { as: "schemeNodes" });
 SchemeNode.belongsTo(Scheme);
 
@@ -40,4 +51,5 @@ module.exports = {
   SchemeNode,
   Scheme,
   Element,
+  User,
 };
