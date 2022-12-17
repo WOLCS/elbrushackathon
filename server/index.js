@@ -6,12 +6,18 @@ const path = require("path");
 const sequelize = require("./db");
 const router = require("./controllers");
 const consultantData = require("./static/consultant.json");
+const bodyParser = require("body-parser");
+const errorHandler = require("./error/error-handler");
 
 const app = express();
-app.use(express.json());
+
+// app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static(path.resolve(__dirname, "static")));
 app.use("/api", router);
+app.use(errorHandler);
 
 const token = process.env.TOKEN;
 const PORT = process.env.PORT || 5000;
