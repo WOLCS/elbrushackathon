@@ -25,21 +25,23 @@ module.exports = {
       'SELECT "Schemes"."schemeId" from "Schemes"'
     );
     const schemeIds = schemes[0];
-    const schemeNodesScheme1 = [...new Array(15)].map((el, i) => ({
-      SchemeSchemeId: schemeIds[0].schemeId,
-      schemeNodeId: i,
-    }));
-
-    const schemeNodesScheme2 = [...new Array(28)].map((el, i) => ({
-      SchemeSchemeId: schemeIds[1].schemeId,
-      schemeNodeId: i,
-    }));
-
-    await queryInterface.bulkInsert(
-      "SchemeNodes",
-      schemeNodesScheme1.concat(schemeNodesScheme2),
-      {}
+    const schemeNodesArray = [...new Array(12), ...new Array(4)].map(
+      (el, i) => {
+        if (i < 12) {
+          return {
+            SchemeSchemeId: schemeIds[0].schemeId,
+            schemeNodeId: i,
+          };
+        }
+        return {
+          SchemeSchemeId: schemeIds[1].schemeId,
+          schemeNodeId: i,
+        };
+      }
     );
+
+    await queryInterface.bulkInsert("SchemeNodes", schemeNodesArray, {});
+
     const schemeNodes = await queryInterface.sequelize.query(
       'SELECT "SchemeNodes"."schemeNodeId" from "SchemeNodes"'
     );
@@ -154,7 +156,14 @@ module.exports = {
         SchemeNodeSchemeNodeId: schemeNodeIds[4].schemeNodeId,
         elementType: "text",
         elementText:
-          "Добрый день, _имя рекрутера__, хотел(а) бы сделать апдейт по процессу рекрутинга - я на днях  получил(а) оффер, однако ваша компания для меня приоритетна и я бы хотел(а) пройти дальнейшие этапы/получить обратную связь по собеседованию как можно скорее. Подскажите, пожалуйста, сможете ли вы до (свой день недели) вернуться с ответом по моей кандидатуре?",
+          "Добрый день, _имя рекрутера__, хотел(а) бы сделать апдейт по процессу рекрутинга - я на днях  получил(а) оффер, однако ваша компания для меня приоритетна,",
+      },
+      {
+        SchemeSchemeId: schemeIds[0].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[4].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "и я бы хотел(а) пройти дальнейшие этапы/получить обратную связь по собеседованию как можно скорее. Подскажите, пожалуйста, сможете ли вы до (свой день недели) вернуться с ответом по моей кандидатуре?",
       },
       {
         SchemeSchemeId: schemeIds[0].schemeId,
@@ -170,7 +179,21 @@ module.exports = {
         SchemeNodeSchemeNodeId: schemeNodeIds[5].schemeNodeId,
         elementType: "spoiler",
         elementText:
-          "Скажите, что вам нужно время обдумать их предложение и назовите срок, когда вы вернетесь с ответом (в идеале не больше 3-4 рабочих дней). Не принимайте оффер сразу же так как первый оффер от любой компании ВСЕГДА минимален по сумме, он только открывает пространство переговоров по зарплате. помните, что  зарплата разработчика прежде всего зависит от суммы, в которую он сам себя оценивает.",
+          "Скажите, что вам нужно время обдумать их предложение и назовите срок, когда вы вернетесь с ответом (в идеале не больше 3-4 рабочих дней).",
+      },
+      {
+        SchemeSchemeId: schemeIds[0].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[5].schemeNodeId,
+        elementType: "spoiler",
+        elementText:
+          "Не принимайте оффер сразу же так как первый оффер от любой компании ВСЕГДА минимален по сумме, он только открывает пространство переговоров по зарплате.",
+      },
+      {
+        SchemeSchemeId: schemeIds[0].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[5].schemeNodeId,
+        elementType: "spoiler",
+        elementText:
+          "Помните, что  зарплата разработчика прежде всего зависит от суммы, в которую он сам себя оценивает.",
       },
       {
         SchemeSchemeId: schemeIds[0].schemeId,
@@ -210,14 +233,28 @@ module.exports = {
         SchemeNodeSchemeNodeId: schemeNodeIds[6].schemeNodeId,
         elementType: "spoiler",
         elementText:
-          "Если вы получили оффер, на который просят ответить за короткое время (24/48/72 часа), а вы не готовы так быстро принять решение/ждете информации от других работодателей. Не ведитесь на срочность и не переживайте - это просто способ работодателя надавить и поскорее закрыть вакансию. Напишите ответ HR в таком ключе:",
+          "Если вы получили оффер, на который просят ответить за короткое время (24/48/72 часа), а вы не готовы так быстро принять решение/ждете информации от других работодателей. ",
       },
       {
         SchemeSchemeId: schemeIds[0].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[6].schemeNodeId,
         elementType: "text",
         elementText:
-          '"Добрый день, _имя рекрутера__, благодарю, документ получил(а). К сожалению, принять решение по данному предложению в такой короткий срок/за 24-48-72 часа/1 день/2 дня я не имею возможности, так как нахожусь на финальной стадии переговоров с другими компаниями и этот процесс займет еще примерно неделю. Мне понадобится больше времени, чтобы принять взвешенное решение."',
+          "Не ведитесь на срочность и не переживайте - это просто способ работодателя надавить и поскорее закрыть вакансию. Напишите ответ HR в таком ключе:",
+      },
+      {
+        SchemeSchemeId: schemeIds[0].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[6].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Добрый день, _имя рекрутера__, благодарю, документ получил(а). К сожалению, принять решение по данному предложению в такой короткий срок/за 24-48-72 часа/1 день/2 дня я не имею возможности,",
+      },
+      {
+        SchemeSchemeId: schemeIds[0].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[6].schemeNodeId,
+        elementType: "text",
+        elementText:
+          'так как нахожусь на финальной стадии переговоров с другими компаниями и этот процесс займет еще примерно неделю. Мне понадобится больше времени, чтобы принять взвешенное решение."',
       },
       {
         SchemeSchemeId: schemeIds[0].schemeId,
@@ -301,15 +338,22 @@ module.exports = {
         SchemeSchemeId: schemeIds[0].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[9].schemeNodeId,
         elementType: "text",
-        elementText: `1. Поднимаем сумму.
-        Однако на днях у меня завершились переговоры с другой компанией и я получил(а) оффер привлекательнее по размеру заработной платы. Предлагаю пересмотреть размер зарплаты до (сумма).`,
+        elementText:
+          "1. Поднимаем сумму: Однако на днях у меня завершились переговоры с другой компанией и я получил(а) оффер привлекательнее по размеру заработной платы. Предлагаю пересмотреть размер зарплаты до (сумма).",
       },
       {
         SchemeSchemeId: schemeIds[0].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[9].schemeNodeId,
         elementType: "text",
-        elementText: `2.Улучшаем условия, которые не устраивают.
-        Однако я хотел(а) бы обсудить возможность удаленной работы (работы в офисе), возможность получить ДМС со стоматологией (перечислить условия, которые для вас идеальны). Подскажите, пожалуйста, есть ли возможность обсудить варианты обновления оффера?`,
+        elementText:
+          "2.Улучшаем условия, которые не устраивают:Однако я хотел(а) бы обсудить возможность удаленной работы (работы в офисе), возможность получить ДМС со стоматологией (перечислить условия, которые для вас идеальны).",
+      },
+      {
+        SchemeSchemeId: schemeIds[0].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[9].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Подскажите, пожалуйста, есть ли возможность обсудить варианты обновления оффера?",
       },
     ];
     const schemeOneCard10 = [
@@ -324,7 +368,14 @@ module.exports = {
         SchemeNodeSchemeNodeId: schemeNodeIds[10].schemeNodeId,
         elementType: "text",
         elementText:
-          "Не соглашайтесь, не попробовав поднять сумму, даже если отчаялись и считаете это первым и последним оффером. Самое страшное, что может произойти, если вы попробуете договориться о повышении - работодатель ответит, что это финальный оффер и дальнейшие переговоры невозможны.",
+          "Не соглашайтесь, не попробовав поднять сумму, даже если отчаялись и считаете это первым и последним оффером.",
+      },
+      {
+        SchemeSchemeId: schemeIds[0].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[10].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Самое страшное, что может произойти, если вы попробуете договориться о повышении - работодатель ответит, что это финальный оффер и дальнейшие переговоры невозможны.",
       },
       {
         SchemeSchemeId: schemeIds[0].schemeId,
@@ -341,7 +392,14 @@ module.exports = {
         SchemeNodeSchemeNodeId: schemeNodeIds[11].schemeNodeId,
         elementType: "text",
         elementText:
-          "Я внимательно ознакомился(лась) с вашим предложением. Мне нравится ваша компания/проект/команда и я заинтересован в сотрудничестве с вами, однако меня смущает уровень заработной платы. В других компаниях, с которыми я веду переговоры, предлагается более высокий уровень дохода. Давайте обсудимпредлагаю пересмотреть размер зарплаты до (сумма).",
+          "Я внимательно ознакомился(лась) с вашим предложением. Мне нравится ваша компания/проект/команда и я заинтересован в сотрудничестве с вами, однако меня смущает уровень заработной платы. ",
+      },
+      {
+        SchemeSchemeId: schemeIds[0].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[11].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "В других компаниях, с которыми я веду переговоры, предлагается более высокий уровень дохода. Давайте обсудимпредлагаю пересмотреть размер зарплаты до (сумма).",
       },
       {
         SchemeSchemeId: schemeIds[0].schemeId,
@@ -420,10 +478,8 @@ module.exports = {
         SchemeSchemeId: schemeIds[1].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[2].schemeNodeId,
         elementType: "text",
-        elementText: `Здравствуйте (Имя HR-менеджера).
-Благодарю Вас за внимание, проявленное к моей кандидатуре.
-Буду рад(а) оставаться с вами на связи и получить приглашение на собеседование.
-С уважением, (Ваше имя).`,
+        elementText:
+          "Здравствуйте (Имя HR-менеджера). Благодарю Вас за внимание, проявленное к моей кандидатуре. Буду рад(а) оставаться с вами на связи и получить приглашение на собеседование.С уважением, (Ваше имя).",
       },
     ];
     const schemeTwoCard3 = [
