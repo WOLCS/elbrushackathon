@@ -25,7 +25,7 @@ bot.on("message", async (msg) => {
           [
             {
               text: "Написать карьерному коучу Наде",
-              url: "https://t.me/krutikovanad",
+              url: "tg://user?id=251064417",
             },
           ],
         ],
@@ -33,16 +33,13 @@ bot.on("message", async (msg) => {
     });
   }
 
-  if(msg?.text === "Написать карьерному коучу Наде") {
+  if (msg?.text === "Написать карьерному коучу Наде") {
     try {
-        
-        await bot.sendMessage(chatId, 'Test')
-      
+      await bot.sendMessage(chatId, "Test");
     } catch (e) {
-        console.log(e);
+      console.log(e);
     }
-}
-
+  }
 });
 
 const PORT = 8000;
