@@ -14,7 +14,5 @@ export const Spoiler = () => {
       <Text fz="xl">Default text</Text>
       </Collapse>
     </>
-    
   )
 }
-
