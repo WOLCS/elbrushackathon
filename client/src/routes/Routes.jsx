@@ -2,14 +2,17 @@ import { Routes, Route } from 'react-router-dom'
 import { HomePage } from '../pages/HomePage'
 import { SchemeNode } from '../pages/SchemeNode'
 
-export const AppRoutes = ({ children }) => {
+import { Layout } from '../components/Layout'
+
+export const AppRoutes = () => {
    return (
       <>
          <Routes>
-            <Route path="/:schemeNodeId" element={<SchemeNode />} />
             <Route path="/" element={<HomePage />} />
-            {children}
-         </Routes>
+            <Route element={<Layout />}>
+            <Route path="/:schemeNodeId" element={<SchemeNode />} />
+         </Route>
+      </Routes>
       </>
    )
 }

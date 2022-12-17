@@ -13,7 +13,7 @@ module.exports = {
       elementText: { type: Sequelize.STRING, allowNull: false },
       elementLink: { type: Sequelize.STRING },
       schemeId: { type: Sequelize.INTEGER },
-      schemeNodeId: { type: Sequelize.INTEGER },
+      next: { type: Sequelize.INTEGER },
       SchemeSchemeId: { type: Sequelize.INTEGER, allowNull: false },
       SchemeNodeSchemeNodeId: { type: Sequelize.INTEGER, allowNull: false },
     });

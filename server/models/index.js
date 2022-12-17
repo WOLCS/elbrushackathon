@@ -25,8 +25,20 @@ const Element = sequelize.define("Elements", {
   elementId: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   elementType: { type: DataTypes.STRING, allowNull: false },
   elementText: { type: DataTypes.STRING, allowNull: false },
+  elementLink: { type: DataTypes.STRING },
   schemeId: { type: DataTypes.INTEGER },
-  schemeNodeId: { type: DataTypes.INTEGER },
+  next: { type: DataTypes.INTEGER },
+});
+
+const User = sequelize.define("Users", {
+  userId: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  login: { type: DataTypes.STRING, allowNull: false },
+  password: { type: DataTypes.STRING, allowNull: false },
+  role: { type: DataTypes.STRING, allowNull: false },
 });
 
 Scheme.hasMany(SchemeNode, { as: "schemeNodes" });
@@ -40,4 +52,5 @@ module.exports = {
   SchemeNode,
   Scheme,
   Element,
+  User,
 };
