@@ -1,12 +1,10 @@
-import { AppRoutes } from './routes/Routes.jsx';
+import { AppRoutes } from './routes/Routes.jsx'
+
 
 export const App = () => {
-  return (
-  <AppRoutes />
-  );
+   return (
+      <>
+         <AppRoutes />
+      </>
+   )
 }
-    
-  
-  
-
-

@@ -1,3 +1,3 @@
-export { ButtonItem } from "./Button"
-export { Spoiler } from "./Spoiler"
-export { TextPage } from "./TextPage"
+export { Button } from './Button'
+export { Spoiler } from './Spoiler'
+export { Text } from './Text'

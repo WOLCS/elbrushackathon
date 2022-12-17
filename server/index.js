@@ -1,4 +1,5 @@
 require("dotenv").config();
+require("pg");
 const TelegramBot = require("node-telegram-bot-api");
 const express = require("express");
 const cors = require("cors");
@@ -42,7 +43,7 @@ const start = async () => {
               [
                 {
                   text: "Пройти обучение",
-                  web_app: { url: "https://google.com" },
+                  web_app: { url: "https://elbrushackathon.vercel.app" },
                 },
               ],
               [{ text: "Скачать схему", callback_data: "scheme" }],

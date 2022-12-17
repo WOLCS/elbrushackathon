@@ -11,6 +11,9 @@ module.exports = {
       },
       elementType: { type: Sequelize.STRING, allowNull: false },
       elementText: { type: Sequelize.STRING, allowNull: false },
+      elementLink: { type: Sequelize.STRING },
+      schemeId: { type: Sequelize.INTEGER },
+      schemeNodeId: { type: Sequelize.INTEGER },
       SchemeSchemeId: { type: Sequelize.INTEGER, allowNull: false },
       SchemeNodeSchemeNodeId: { type: Sequelize.INTEGER, allowNull: false },
     });

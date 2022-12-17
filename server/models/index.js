@@ -10,6 +10,7 @@ const File = sequelize.define("Files", {
 const Scheme = sequelize.define("Schemes", {
   schemeId: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   title: { type: DataTypes.STRING, unique: true, allowNull: false },
+  startSchemeNodeId: { type: DataTypes.STRING, allowNull: false },
 });
 
 const SchemeNode = sequelize.define("SchemeNodes", {
@@ -24,6 +25,8 @@ const Element = sequelize.define("Elements", {
   elementId: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   elementType: { type: DataTypes.STRING, allowNull: false },
   elementText: { type: DataTypes.STRING, allowNull: false },
+  schemeId: { type: DataTypes.INTEGER },
+  schemeNodeId: { type: DataTypes.INTEGER },
 });
 
 const User = sequelize.define("Users", {
