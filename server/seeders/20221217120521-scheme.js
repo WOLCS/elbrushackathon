@@ -351,7 +351,114 @@ module.exports = {
         elementLink: "images/rocket.png",
       },
     ];
-
+    const schemeTwoCard0 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[0].schemeNodeId,
+        elementType: "spoiler",
+        elementText:
+          "Вы выложили резюме в открытом доступе на HHHabr Career и пр.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[0].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Присоединяем сопроводительное письмо + одностраничное резюме отдельным файлом!",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[0].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        schemeNodeId: schemeNodeIds[2].schemeNodeId,
+        elementType: "button",
+        elementText:
+          "Вы откликнулись, и вам ответили 'Спасибо, мы внесли ваше резюме в базу",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[0].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        schemeNodeId: schemeNodeIds[1].schemeNodeId,
+        elementType: "button",
+        elementText: "HR сама связалась с предложением созвониться",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[0].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        schemeNodeId: schemeNodeIds[3].schemeNodeId,
+        elementType: "button",
+        elementText: "Вы сами откликнулись, и вас пригласили",
+      },
+    ];
+    const schemeTwoCard1 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[1].schemeNodeId,
+        elementType: "text",
+        elementText: "Поздравляю, резюме работает!",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[1].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        schemeNodeId: schemeNodeIds[3].schemeNodeId,
+        elementType: "button",
+        elementText: "Далее",
+      },
+    ];
+    const schemeTwoCard2 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[2].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Поблагодарите HR и напишите емкое сообщение, налаживая коммуникацию с первого касания. Например:",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[2].schemeNodeId,
+        elementType: "text",
+        elementText: `Здравствуйте (Имя HR-менеджера).
+Благодарю Вас за внимание, проявленное к моей кандидатуре.
+Буду рад(а) оставаться с вами на связи и получить приглашение на собеседование.
+С уважением, (Ваше имя).`,
+      },
+    ];
+    const schemeTwoCard3 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[3].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Ура! Вас заметили! Хотите продолжить общение по вакансии?",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[3].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        schemeNodeId: schemeNodeIds[4].schemeNodeId,
+        elementType: "button",
+        elementText: "Возможно, но в резюме не указана ЗП",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[3].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        schemeNodeId: schemeNodeIds[5].schemeNodeId,
+        elementType: "button",
+        elementText: "Да",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[1].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        schemeNodeId: schemeNodeIds[6].schemeNodeId,
+        elementType: "button",
+        elementText: "Нет",
+      },
+    ];
     await queryInterface.bulkInsert(
       "Elements",
       [
