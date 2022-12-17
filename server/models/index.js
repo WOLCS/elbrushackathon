@@ -10,6 +10,7 @@ const File = sequelize.define("Files", {
 const Scheme = sequelize.define("Schemes", {
   schemeId: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   title: { type: DataTypes.STRING, unique: true, allowNull: false },
+  startSchemeNodeId: { type: DataTypes.STRING, allowNull: false },
 });
 
 const SchemeNode = sequelize.define("SchemeNodes", {

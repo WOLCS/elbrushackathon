@@ -8,7 +8,13 @@ export const initialState = {
             schemeId: 'scheme1',
             elements: [
                { elementId: 'esa11', elementType: 'text', elementText: 'Вам звонит HR и сообщает' },
-               { elementId: 'esa12', type: 'button', title: 'Далеше', nextSchemeId: 'scheme1', nextSchemeNodeId: 'sa2' }
+               {
+                  elementId: 'esa12',
+                  elementType: 'button',
+                  elementText: 'Дальше',
+                  nextSchemeId: 'scheme1',
+                  nextSchemeNodeId: 'sa2'
+               }
             ]
          },
          s2a: {
@@ -16,7 +22,13 @@ export const initialState = {
             schemeId: 'scheme1',
             elements: [
                { elementId: 'esa21', elementType: 'text', elementText: 'Запишите все, что сказал' },
-               { elementId: 'esa22', type: 'button', title: 'Далеше', nextSchemeId: 'scheme1', nextSchemeNodeId: 'sa3' }
+               {
+                  elementId: 'esa22',
+                  elementType: 'button',
+                  elementText: 'Дальше',
+                  nextSchemeId: 'scheme1',
+                  nextSchemeNodeId: 'sa3'
+               }
             ]
          }
       }
@@ -32,15 +44,15 @@ export const initialState = {
                { elementId: 'esb11', elementType: 'text', elementText: 'Вы выложили резюме на HH' },
                {
                   elementId: 'esb12',
-                  type: 'button',
-                  title: 'Вы сами откликнулись и Вас внесли в базу',
+                  elementType: 'button',
+                  elementText: 'Вы сами откликнулись и Вас внесли в базу',
                   nextSchemeId: 'scheme2',
                   nextSchemeNodeId: 'sb2'
                },
                {
                   elementId: 'esb13',
-                  type: 'button',
-                  title: 'Вы сыми откликнулиси и Вас пригласили на собеседование',
+                  elementType: 'button',
+                  elementText: 'Вы сыми откликнулиси и Вас пригласили на собеседование',
                   nextSchemeId: 'scheme2',
                   nextSchemeNodeId: 'sb3'
                }
