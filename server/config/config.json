@@ -1,0 +1,14 @@
+{
+  "development": {
+    "username": "ouwsvyzn",
+    "password": "rZMsFGZ7sIG5Ejq-ALKe446EnOmsUw_y",
+    "database": "ouwsvyzn",
+    "url": "postgres://ouwsvyzn:rZMsFGZ7sIG5Ejq-ALKe446EnOmsUw_y@mel.db.elephantsql.com/ouwsvyzn",
+    "dialect": "postgres",
+    "define": {
+      "timestamps": false
+    }
+  },
+  "test": {},
+  "production": {}
+}
