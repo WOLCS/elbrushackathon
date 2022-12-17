@@ -1,22 +1,32 @@
 .header {
-    padding-left: 40px;
+  padding-left: 40px;
   padding-right: 40px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   height: 70px;
-  background-color: rgb(108, 26, 149);
+  background-color: white;
+  border-bottom: 1px solid rgba(217, 217, 217, 1);
 }
 .navButton {
     display: flex;
     text-align: center;
-    justify-content: space-between;
-    font-size: 20px;
+    justify-content: center;
+    font-size: 22px;
+    width: 27vh;
     color: white;
     text-decoration: none;
-    background-color: rgb(108, 26, 149);
+    background-color: #4520AB;
+    border-radius: 20px;
+    font-family: RF Rostin;
   } 
   .navButton:hover {
     text-decoration: underline;
-    color: rgb(108, 26, 149);
+    color: grey;
+  }
+  .categoryButton {
+    background-color: #FFBC5B;
+    color: black;
+    font-family: RF Rostin;
+    border-radius: 20px;
   }
