@@ -9,6 +9,7 @@ module.exports = {
         {
           schemeId: 0,
           title: "Переговоры",
+          startSchemeNodeId: 0,
         },
       ],
       {}

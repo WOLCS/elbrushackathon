@@ -10,6 +10,7 @@ module.exports = {
         autoIncrement: true,
       },
       title: { type: Sequelize.STRING, unique: true, allowNull: false },
+      startSchemeNodeId: { type: Sequelize.STRING, allowNull: false },
     });
   },
 
