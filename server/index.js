@@ -16,21 +16,23 @@ bot.on("message", async (msg) => {
   const text = msg.text;
 
   if (text === "/start") {
-    await bot.sendMessage(chatId, "Ниже появится кнопка, заполни форму", {
+    
+    await bot.sendMessage(chatId, 'Выбери опцию', {
+      parse_mode: "html",
       reply_markup: {
-        keyboard: [
-          [{ text: "Пройти обучение" }],
-          [{ text: "Скачать схему" }],
-          [{ text: "Получить мем" }],
-          [
-            {
-              text: "Написать карьерному коучу Наде",
-              url: "tg://user?id=251064417",
-            },
-          ],
-        ],
-      },
-    });
+          inline_keyboard: [
+            [{ text: "Пройти обучение", callback_data: "1"  }],
+            [{ text: "Скачать схему", callback_data: "1"  }],
+            [{ text: "Получить мем", callback_data: "1" }],
+            [
+              {
+                text: "Написать карьерному коучу Наде",
+                url: "tg://user?id=598025676",
+              }
+            ],
+          ]
+      }
+  })
   }
 
   if (msg?.text === "Написать карьерному коучу Наде") {
