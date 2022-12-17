@@ -19,7 +19,6 @@ bot.on("message", async (msg) => {
     await bot.sendMessage(chatId, "Ниже появится кнопка, заполни форму", {
       reply_markup: {
         keyboard: [
-          //                  [{text: 'Заполнить форму', web_app: {url: webAppUrl + '/form'}}]
           [{ text: "Пройти обучение" }],
           [{ text: "Скачать схему" }],
           [{ text: "Получить мем" }],
@@ -33,6 +32,17 @@ bot.on("message", async (msg) => {
       },
     });
   }
+
+  if(msg?.text === "Написать карьерному коучу Наде") {
+    try {
+        
+        await bot.sendMessage(chatId, 'Test')
+      
+    } catch (e) {
+        console.log(e);
+    }
+}
+
 });
 
 const PORT = 8000;
