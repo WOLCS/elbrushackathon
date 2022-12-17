@@ -4,6 +4,7 @@ import {
   IconHome2,
   IconArrowBarLeft,
 } from '@tabler/icons';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -40,29 +41,48 @@ function NavbarLink({ icon: Icon, label, active, onClick }) {
   );
 }
 
-const mockdata = [
-  { icon: IconHome2, label: 'Home' },
-  { icon: IconArrowBarLeft, label: 'Back' },
-  
-];
+
+
 
 export function Header() {
-  const [active, setActive] = useState(2);
+  const [active] = useState(2);
+  const navigate = useNavigate();
 
-  const links = mockdata.map((link, index) => (
+const home = [
+  { icon: IconHome2, label: 'Home'},
+];
+const back = [
+  { icon: IconArrowBarLeft, label: 'Back' },
+];
+
+
+  const homeView = home.map((link, index) => (
     <NavbarLink
       {...link}
       key={link.label}
       active={index === active}
-      onClick={() => setActive(index)}
+      onClick={() => navigate('/')}
+    />
+  ));
+  const backView = back.map((link, index) => (
+    <NavbarLink
+      {...link}
+      key={link.label}
+      active={index === active}
+      onClick={() => navigate(-1)}
     />
   ));
 
   return (
     <Navbar height={750} width={{ base: 80 }} p="md">
-      <Navbar.Section grow mt={30}>
-        <Stack justify="center" spacing={400}>
-          {links}
+      <Navbar.Section grow mt={90}>
+        <Stack justify="center" spacing={800}>
+          {homeView}
+          </Stack>
+        </Navbar.Section>
+        <Navbar.Section grow mt={90}>
+        <Stack justify="center" spacing={600}>
+          {backView}
         </Stack>
       </Navbar.Section>
       

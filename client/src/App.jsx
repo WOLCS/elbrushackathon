@@ -1,10 +1,11 @@
-import { AppRoutes } from './routes/Routes.jsx';
+import { AppRoutes } from './routes/Routes.jsx'
+import {Header} from '../src/components/Header';
 
 export const App = () => {
-  return (
-  <AppRoutes />
-  );
+   return (
+      <>
+         <Header />
+         <AppRoutes />
+      </>
+   )
 }
-    
-  
-  
