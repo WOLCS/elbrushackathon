@@ -3,6 +3,7 @@ import { Flex, Button, Title, Container, Center } from '@mantine/core'
 import { ServerErrorPage } from './500'
 import { useGetSchemesQuery } from '../api/botApi'
 import '../../styles.css'
+import jwt_decode from 'jwt-decode';
 
 export const HomePage = () => {
    const { data: categories, isLoading, isSuccess, isError } = useGetSchemesQuery()
@@ -37,6 +38,9 @@ export const HomePage = () => {
                   </Link>
                ))}
             </Flex>
+            {/* {role==='ROLE_ADMIN'&&(<Button className="categoryButton" radius="md" size="xl" uppercase>
+                        Edit
+                     </Button>)} */}
          </Center>
       </Container>
    )
