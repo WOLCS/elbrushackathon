@@ -1,6 +1,8 @@
 {
-   "redirects": {
-      "src": "/(.*)",
-      "dest": "/"
-   }
+   "redirects": [
+      {
+         "src": "/(.*)",
+         "dest": "/"
+      }
+   ]
 }
