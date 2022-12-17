@@ -70,10 +70,8 @@ const start = async () => {
 
       if (msg.data === "meme") {
         await bot.sendMessage(chatId, "Лови мем!");
-        return bot.sendPhoto(
-          chatId,
-          "https://sun6-20.userapi.com/impg/E38H04ZuX2jg422-kLBQ-Xqh2TyLCEL7SQ0Ocw/xKfosj4dGlU.jpg?size=599x1059&quality=95&sign=8d16578f6356461ab4b91ce7c2588562&c_uniq_tag=8SrkPDwrXg0UsTR3coc61G_9wVz2Nzi8nrlHG03G1qA&type=album"
-        );
+        const randomNumber = Math.floor(Math.random() * 22) + 1;
+        return bot.sendPhoto(chatId, `./static/memes/${randomNumber}.png`);
       }
 
       return bot.sendMessage(
