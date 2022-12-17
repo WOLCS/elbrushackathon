@@ -1,11 +1,13 @@
 import { useSelector } from 'react-redux'
 import { selectSchemes } from '../store/botReducer'
-import { Flex, Button, Title, Container, Box } from '@mantine/core';
+import { Flex, Button, Title, Container, Center} from '@mantine/core';
 
 export const HomePage = () => {
    const categories = useSelector(selectSchemes)
    return (
-      <> <Container><Title order={1}>HOME PAGE</Title>
+      <> <Container><Center style={{ width: 400, height: 200 }}>
+    <Title order={1}>HOME PAGE</Title>
+    </Center>
          <Flex
       mih={150}
       bg="rgba(0, 0, 0, .3)"
