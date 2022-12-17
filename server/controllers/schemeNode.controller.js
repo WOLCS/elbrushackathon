@@ -2,23 +2,22 @@ const express = require("express");
 const authorize = require("../helpers/authorize");
 
 const router = express.Router();
-const schemeService = require("../service/scheme.service.js");
+const schemeNodeService = require("../service/schemeNode.service.js");
 
 function getAll(req, res, next) {
-  const isShort = req.query.short;
-  schemeService
-    .getAll(isShort)
-    .then((schemes) => res.json(schemes))
+  schemeNodeService
+    .getAll()
+    .then((schemeNodes) => res.json(schemeNodes))
     .catch((err) => next(err));
 }
 
 function getById(req, res, next) {
   const id = parseInt(req.params.id, 10);
-  schemeService
+  schemeNodeService
     .getById(id)
-    .then((scheme) => {
-      console.log(scheme);
-      return res.json(scheme);
+    .then((schemeNode) => {
+      console.log(schemeNode);
+      return res.json(schemeNode);
     })
     .catch((err) => next(err));
 }
@@ -26,18 +25,18 @@ function getById(req, res, next) {
 function updateScheme(req, res, next) {
   const id = parseInt(req.params.id, 10);
 
-  const scheme = req.body;
-  schemeService
-    .updateScheme(id, scheme)
-    .then((scheme) => res.json(scheme))
+  const schemeNode = req.body;
+  schemeNodeService
+    .updateScheme(id, schemeNode)
+    .then((schemeNode) => res.json(schemeNode))
     .catch((err) => next(err));
 }
 
 function deleteScheme(req, res, next) {
   const id = parseInt(req.params.id, 10);
-  schemeService
+  schemeNodeService
     .deleteScheme(id)
-    .then((scheme) => res.json(scheme))
+    .then((schemeNode) => res.json(schemeNode))
     .catch((err) => next(err));
 }
 
