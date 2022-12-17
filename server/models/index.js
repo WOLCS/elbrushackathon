@@ -24,6 +24,8 @@ const Element = sequelize.define("Elements", {
   elementId: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   elementType: { type: DataTypes.STRING, allowNull: false },
   elementText: { type: DataTypes.STRING, allowNull: false },
+  schemeId: { type: DataTypes.INTEGER },
+  schemeNodeId: { type: DataTypes.INTEGER },
 });
 
 Scheme.hasMany(SchemeNode, { as: "schemeNodes" });

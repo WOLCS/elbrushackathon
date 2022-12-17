@@ -50,7 +50,9 @@ module.exports = {
         },
         {
           SchemeSchemeId: schemeIds[0].schemeId,
-          SchemeNodeSchemeNodeId: schemeNodeIds[1].schemeNodeId,
+          SchemeNodeSchemeNodeId: schemeNodeIds[0].schemeNodeId,
+          schemeId: schemeIds[0].schemeId,
+          schemeNodeId: schemeNodeIds[1].schemeNodeId,
           elementId: 1,
           elementType: "button",
           elementText: "Далее",
@@ -62,6 +64,14 @@ module.exports = {
           elementType: "text",
           elementText:
             "Запишите все, что HR рассказал по телефону/сравните текст сообщения с текстом вакансии - информация может немного отличаться от опубликованной в вакансии, то, что озвучил/написал  HR  имеет большую силу.",
+        },
+        {
+          SchemeSchemeId: schemeIds[0].schemeId,
+          SchemeNodeSchemeNodeId: schemeNodeIds[1].schemeNodeId,
+          elementId: 3,
+          elementType: "image",
+          elementText: "Red phone",
+          elementLink: "images/phone.png",
         },
       ],
       {}
