@@ -1,8 +1,8 @@
-import { Container } from '@mantine/core'
-import { Button, Text, Spoiler } from '../components'
+import { useParams } from 'react-router-dom'
+import { Container, Flex } from '@mantine/core'
+import { Button, Text, Spoiler, LoadingOverlay } from '../components'
 import { ServerErrorPage } from './500'
 import { useGetSchemeNodeQuery } from '../api/botApi'
-import { useParams } from 'react-router-dom'
 
 const componentToType = {
    text: Text,
@@ -12,32 +12,24 @@ const componentToType = {
 
 export const SchemeNode = () => {
    const { schemeNodeId } = useParams()
-   const { data: schemeNode, isLoading, isError, isSuccess } = useGetSchemeNodeQuery(schemeNodeId)
+   const { data: schemeNode, isLoading, isError } = useGetSchemeNodeQuery(schemeNodeId)
 
-   if (isLoading) {
-      return <h2>Loading...</h2>
-   }
-
-   if (isError) {
-      return <ServerErrorPage />
-   }
-   if (isSuccess) {
-      const { elements } = schemeNode
-      return (
-         <Container>
-            {elements?.map(({ elementType, elementText, schemeNodeId }) => {
-               console.log(elementType, elementText, schemeNodeId)
-
+   return isLoading ? (
+      <LoadingOverlay />
+   ) : isError ? (
+      <ServerErrorPage />
+   ) : (
+      <Container size="sm">
+         <Flex gap="xl" align="stretch" direction="column">
+            {schemeNode.elements?.map(({ elementType, elementText, schemeNodeId }) => {
                const Component = componentToType[elementType]
-               const props = {
-                  children: elementText,
-                  key: elementText.substring(0, 8),
-                  ...(elementType === 'button' && { schemeNodeId })
-               }
-               return <Component {...props} />
+               return (
+                  <Component key={elementText.substring(0, 8)} {...(elementType === 'button' && { schemeNodeId })}>
+                     {elementText}
+                  </Component>
+               )
             })}
-         </Container>
-      )
-   }
-   return <h3>Strange...</h3>
+         </Flex>
+      </Container>
+   )
 }
