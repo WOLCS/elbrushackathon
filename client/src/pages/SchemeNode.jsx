@@ -1,43 +1,47 @@
-import { Container } from '@mantine/core'
-import { Button, Text, Spoiler } from '../components'
+import { useParams } from 'react-router-dom'
+import { Container, Flex } from '@mantine/core'
+import { Button, Text, Spoiler, LoadingOverlay, Image } from '../components'
 import { ServerErrorPage } from './500'
 import { useGetSchemeNodeQuery } from '../api/botApi'
-import { useParams } from 'react-router-dom'
+import '../../styles.css';
 
 const componentToType = {
    text: Text,
    spoiler: Spoiler,
-   button: Button
+   button: Button,
+   image: Image
 }
 
 export const SchemeNode = () => {
    const { schemeNodeId } = useParams()
-   const { data: schemeNode, isLoading, isError, isSuccess } = useGetSchemeNodeQuery(schemeNodeId)
-
-   if (isLoading) {
-      return <h2>Loading...</h2>
-   }
-
-   if (isError) {
-      return <ServerErrorPage />
-   }
-   if (isSuccess) {
-      const { elements } = schemeNode
-      return (
-         <Container>
-            {elements?.map(({ elementType, elementText, schemeNodeId }) => {
-               console.log(elementType, elementText, schemeNodeId)
-
+   const { data: schemeNode, isLoading, isError } = useGetSchemeNodeQuery(schemeNodeId)
+   console.log(schemeNodeId);
+   
+   return isLoading ? (
+      <LoadingOverlay />
+   ) : isError ? (
+      <ServerErrorPage />
+   ) : (
+      <Container size="sm">
+         <Flex gap="xl" align="stretch" direction="column">
+            {schemeNode.elements?.map(({ elementType, elementText, schemeNodeId, elementLink, next, elementId }) => {
                const Component = componentToType[elementType]
-               const props = {
-                  children: elementText,
-                  key: elementText.substring(0, 8),
-                  ...(elementType === 'button' && { schemeNodeId })
-               }
-               return <Component {...props} />
+               return (
+                  <Component
+                     key={elementId}
+                     nextSchemeNodeId={next}
+                     {...(elementType === 'button' && { schemeNodeId })}
+                     {...(elementType === 'image' && { elementLink, elementText })}
+                     {...(elementType === 'spoiler' && { elementText })}
+
+
+                     
+                  >
+                     {elementText}
+                  </Component>
+               )
             })}
-         </Container>
-      )
-   }
-   return <h3>Strange...</h3>
+         </Flex>
+      </Container>
+   )
 }

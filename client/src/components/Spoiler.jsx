@@ -1,11 +1,11 @@
 import React from 'react'
 import { Text } from '@mantine/core';
 import { Spoiler as MantineSpoiler} from '@mantine/core';
-export const Spoiler = () => {
+export const Spoiler = ({elementText}) => {
   return (
 
-    <MantineSpoiler maxHeight={5} showLabel="Show more" hideLabel="Hide">
-<Text fz="xl">Default text</Text>
+    <MantineSpoiler maxHeight={5} showLabel="Подробнее" hideLabel="Скрыть">
+<Text fz="xl">{elementText}</Text>
 </MantineSpoiler>
 
   )
