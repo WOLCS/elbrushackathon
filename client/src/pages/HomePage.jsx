@@ -12,7 +12,7 @@ export const HomePage = () => {
    ) : isError ? (
       <ServerErrorPage />
    ) : (
-      <Container className="homeTitle">
+      <Container className="homeTitle" bg="#f3f1f8;">
          <Center>
             <Title color={'#4520ab'} order={1}>
                ТEМА ОБУЧЕНИЯ
