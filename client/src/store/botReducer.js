@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { initialState } from './initialState'
+
+const initialState = {
+   schemes: undefined,
+   schemeNodes: undefined
+}
 
 export const botSlice = createSlice({
    name: 'bot',
