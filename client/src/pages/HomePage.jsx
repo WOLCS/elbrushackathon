@@ -14,19 +14,13 @@ export const HomePage = () => {
    ) : isError ? (
       <ServerErrorPage />
    ) : (
-      <Container className="homeTitle">
+      <Container className="homeTitle" bg="#f3f1f8;">
          <Center>
-            <Title color={'#4520ab'} order={1}>ТEМА ОБУЧЕНИЯ</Title>
+            <Title color={'#4520ab'} order={1}>
+               ТEМА ОБУЧЕНИЯ
+            </Title>
          </Center>
-         <Flex
-            mih={300}
-            bg="#f3f1f8;"
-            gap="md"
-            justify="center"
-            align="center"
-            direction="column"
-            wrap="wrap"
-         >
+         <Flex mih={300} gap="md" justify="center" align="center" direction="column" wrap="wrap">
             {categories?.map(({ title, startSchemeNodeId }) => (
                <Link to={'/' + startSchemeNodeId} key={title}>
                   <Button className="categoryButton" radius="md" size="xl" uppercase>

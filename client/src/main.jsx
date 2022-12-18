@@ -13,6 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <StoreProvider store={store}>
          <BrowserRouter>
             <MantineProvider withGlobalStyles withNormalizeCSS>
+               <GlobalStyles theme={theme} />
                <App />
             </MantineProvider>
          </BrowserRouter>
