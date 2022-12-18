@@ -54,6 +54,13 @@ module.exports = {
       {
         SchemeSchemeId: schemeIds[0].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[0].schemeNodeId,
+        elementType: "image",
+        elementText: "start",
+        elementLink: "images/start.png",
+      },
+      {
+        SchemeSchemeId: schemeIds[0].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[0].schemeNodeId,
         schemeId: schemeIds[0].schemeId,
         next: schemeNodeIds[1].schemeNodeId,
         elementType: "button",
@@ -96,7 +103,7 @@ module.exports = {
         SchemeSchemeId: schemeIds[0].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[2].schemeNodeId,
         elementType: "image",
-        elementText: "Red phone",
+        elementText: "Stop",
         elementLink: "images/stop.png",
       },
       {
@@ -120,8 +127,8 @@ module.exports = {
         SchemeSchemeId: schemeIds[0].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[3].schemeNodeId,
         elementType: "image",
-        elementText: "Red phone",
-        elementLink: "images/stop.png",
+        elementText: "Phone",
+        elementLink: "images/phone.png",
       },
       {
         SchemeSchemeId: schemeIds[0].schemeId,
@@ -144,7 +151,7 @@ module.exports = {
       {
         SchemeSchemeId: schemeIds[0].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[4].schemeNodeId,
-        elementType: "spoiler",
+        elementType: "text",
         elementText:
           'Вы получили оффер - для "поднятия" своего рейтинга у других работодателей сообщите всем компаниям, от которых ждете ответ по собеседованиям (особенно тем, в которые очень хотите), что вы получили оффер:',
       },
@@ -168,6 +175,13 @@ module.exports = {
         elementType: "text",
         elementText:
           "Сообщать от какой компании оффер и на какую сумму не нужно.",
+      },
+      {
+        SchemeSchemeId: schemeIds[0].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[4].schemeNodeId,
+        elementType: "image",
+        elementText: "smile",
+        elementLink: "images/smile.png",
       },
     ];
     const schemeOneCard5 = [
@@ -211,7 +225,7 @@ module.exports = {
         SchemeSchemeId: schemeIds[0].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[5].schemeNodeId,
         schemeId: schemeIds[0].schemeId,
-        next: schemeNodeIds[6].schemeNodeId,
+        next: schemeNodeIds[7].schemeNodeId,
         elementType: "button",
         elementText: "Вы получили хороший оффер",
       },
@@ -299,6 +313,13 @@ module.exports = {
       {
         SchemeSchemeId: schemeIds[0].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[7].schemeNodeId,
+        elementType: "image",
+        elementText: "test",
+        elementLink: "images/test.png",
+      },
+      {
+        SchemeSchemeId: schemeIds[0].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[7].schemeNodeId,
         schemeId: schemeIds[0].schemeId,
         next: schemeNodeIds[8].schemeNodeId,
         elementType: "button",
@@ -358,6 +379,13 @@ module.exports = {
         elementText:
           "Подскажите, пожалуйста, есть ли возможность обсудить варианты обновления оффера?",
       },
+      {
+        SchemeSchemeId: schemeIds[0].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[9].schemeNodeId,
+        elementType: "image",
+        elementText: "important",
+        elementLink: "images/important.png",
+      },
     ];
     const schemeOneCard10 = [
       {
@@ -412,6 +440,13 @@ module.exports = {
         SchemeNodeSchemeNodeId: schemeNodeIds[0].schemeNodeId,
         elementType: "text",
         elementText: "Какой метод поиска работы вас интересует?",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[0].schemeNodeId,
+        elementType: "image",
+        elementText: "start",
+        elementLink: "images/start.png",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
@@ -481,6 +516,13 @@ module.exports = {
       {
         SchemeSchemeId: schemeIds[1].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[2].schemeNodeId,
+        elementType: "image",
+        elementText: "salut",
+        elementLink: "images/salut.png",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[2].schemeNodeId,
         schemeId: schemeIds[1].schemeId,
         next: schemeNodeIds[4].schemeNodeId,
         elementType: "button",
@@ -502,6 +544,13 @@ module.exports = {
         elementText:
           "Здравствуйте (Имя HR-менеджера). Благодарю Вас за внимание, проявленное к моей кандидатуре. Буду рад(а) оставаться с вами на связи и получить приглашение на собеседование.С уважением, (Ваше имя).",
       },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[3].schemeNodeId,
+        elementType: "image",
+        elementText: "smile",
+        elementLink: "images/smile.png",
+      },
     ];
     const schemeTwoCard4 = [
       {
@@ -510,6 +559,13 @@ module.exports = {
         elementType: "text",
         elementText:
           "Ура! Вас заметили! Хотите продолжить общение по вакансии?",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[4].schemeNodeId,
+        elementType: "image",
+        elementText: "point",
+        elementLink: "images/point.png",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
@@ -541,7 +597,7 @@ module.exports = {
         SchemeSchemeId: schemeIds[1].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[5].schemeNodeId,
         schemeId: schemeIds[1].schemeId,
-        next: schemeNodeIds[7].schemeNodeId,
+        next: schemeNodeIds[6].schemeNodeId,
         elementType: "button",
         elementText: "У вас есть оффер",
       },
@@ -549,7 +605,7 @@ module.exports = {
         SchemeSchemeId: schemeIds[1].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[5].schemeNodeId,
         schemeId: schemeIds[1].schemeId,
-        next: schemeNodeIds[8].schemeNodeId,
+        next: schemeNodeIds[7].schemeNodeId,
         elementType: "button",
         elementText: "У вас нет оффера, и вы хотите уточнить по ЗП",
       },
@@ -561,6 +617,13 @@ module.exports = {
         elementType: "text",
         elementText:
           "Как спросить про заработную плату, если она не указана в вакансии?",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[6].schemeNodeId,
+        elementType: "image",
+        elementText: "phone",
+        elementLink: "images/phone.png",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
@@ -601,6 +664,13 @@ module.exports = {
       {
         SchemeSchemeId: schemeIds[1].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[7].schemeNodeId,
+        elementType: "image",
+        elementText: "phone",
+        elementLink: "images/phone.png",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[7].schemeNodeId,
         elementType: "text",
         elementText: "Здравствуйте (Имя HR-менеджера).",
       },
@@ -632,6 +702,7 @@ module.exports = {
         elementType: "text",
         elementText: "Как отказаться от вакансии.",
       },
+
       {
         SchemeSchemeId: schemeIds[1].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[8].schemeNodeId,
@@ -672,6 +743,13 @@ module.exports = {
         elementType: "text",
         elementText: "С уважением, (Ваше имя).",
       },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[8].schemeNodeId,
+        elementType: "image",
+        elementText: "pin",
+        elementLink: "images/pin.png",
+      },
     ];
     const schemeTwoCard9 = [
       {
@@ -709,6 +787,13 @@ module.exports = {
       {
         SchemeSchemeId: schemeIds[1].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[9].schemeNodeId,
+        elementType: "image",
+        elementText: "thumb",
+        elementLink: "images/thumb.png",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[9].schemeNodeId,
         schemeId: schemeIds[1].schemeId,
         next: schemeNodeIds[14].schemeNodeId,
         elementType: "button",
@@ -721,6 +806,13 @@ module.exports = {
         SchemeNodeSchemeNodeId: schemeNodeIds[10].schemeNodeId,
         elementType: "text",
         elementText: 'Холодные" письма. Вы сами пишите HR впервые.',
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[10].schemeNodeId,
+        elementType: "image",
+        elementText: "programmer",
+        elementLink: "images/programmer.png",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
@@ -788,6 +880,13 @@ module.exports = {
         elementType: "text",
         elementText:
           "Если HR-рекрутер вышла с вами на связь и у них есть открытые вакансии, то вы продолжаете коммуникацию и договариваетесь о собеседовании",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[11].schemeNodeId,
+        elementType: "image",
+        elementText: "important",
+        elementLink: "images/important.png",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
@@ -979,6 +1078,13 @@ module.exports = {
       {
         SchemeSchemeId: schemeIds[1].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[15].schemeNodeId,
+        elementType: "image",
+        elementText: "point",
+        elementLink: "images/point.png",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[15].schemeNodeId,
         schemeId: schemeIds[1].schemeId,
         next: schemeNodeIds[16].schemeNodeId,
         elementType: "button",
@@ -1068,6 +1174,13 @@ module.exports = {
         elementType: "text",
         elementText: "«Неужели даже отрицательного фидбэка не заслуживаю?",
       },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[17].schemeNodeId,
+        elementType: "image",
+        elementText: "stop",
+        elementLink: "images/stop.png",
+      },
     ];
     const schemeTwoCard18 = [
       {
@@ -1110,6 +1223,13 @@ module.exports = {
         elementText:
           "Подскажите, сможете ли вы до пятницы вернуться с ответом по моей кандидатуре?",
       },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[18].schemeNodeId,
+        elementType: "image",
+        elementText: "fast",
+        elementLink: "images/fast.png",
+      },
     ];
     const schemeTwoCard19 = [
       {
@@ -1132,6 +1252,13 @@ module.exports = {
         elementText:
           "Мне сегодня сделали оффер, нужно дать ответ до (день недели или число), хотел бы успеть сравнить вакансии.",
       },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[19].schemeNodeId,
+        elementType: "image",
+        elementText: "fast",
+        elementLink: "images/fast.png",
+      },
     ];
     const schemeTwoCard20 = [
       {
@@ -1140,6 +1267,13 @@ module.exports = {
         elementType: "text",
         elementText:
           "Не расстраивайтесь!  Поблагодарите рекрутера за уделенное время и внимание к вам. Например:",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[20].schemeNodeId,
+        elementType: "image",
+        elementText: "hurt",
+        elementLink: "images/hurt.png",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
@@ -1231,6 +1365,13 @@ module.exports = {
         elementType: "text",
         elementText: "(Ваше имя).",
       },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[21].schemeNodeId,
+        elementType: "image",
+        elementText: "heart",
+        elementLink: "images/heart.png",
+      },
     ];
     const schemeTwoCard22 = [
       {
@@ -1246,6 +1387,13 @@ module.exports = {
         elementType: "spoiler",
         elementText:
           "Срочно писать вашему карьерному коучу!!!!!!! NOTE: коуч поможет вам понять что ОК или НЕ ОК в оффере, подскажет как поторговаться по условиям и конечно разделит с вами вашу победу",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[22].schemeNodeId,
+        elementType: "image",
+        elementText: "salut",
+        elementLink: "images/salut.png",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
@@ -1319,6 +1467,13 @@ module.exports = {
         elementType: "text",
         elementText: "С уважением, (Ваше имя).",
       },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[23].schemeNodeId,
+        elementType: "image",
+        elementText: "thumb",
+        elementLink: "images/thumb.png",
+      },
     ];
     const schemeTwoCard24 = [
       {
@@ -1326,6 +1481,13 @@ module.exports = {
         SchemeNodeSchemeNodeId: schemeNodeIds[24].schemeNodeId,
         elementType: "text",
         elementText: "СМОТРИ БЛОК-СХЕМУ ПО ПЕРЕГОВОРАМ",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[24].schemeNodeId,
+        elementType: "image",
+        elementText: "important",
+        elementLink: "images/important.png",
       },
     ];
     const schemeTwoCard25 = [
@@ -1349,6 +1511,13 @@ module.exports = {
         elementType: "text",
         elementText:
           "Это может сыграть во вред вашей репутации на рынке труда.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[25].schemeNodeId,
+        elementType: "image",
+        elementText: "programmer",
+        elementLink: "images/programmer.png",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
