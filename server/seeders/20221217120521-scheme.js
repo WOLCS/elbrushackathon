@@ -21,7 +21,7 @@ module.exports = {
       {}
     );
     const schemes = await queryInterface.sequelize.query(
-      'SELECT "Schemes"."schemeId" from "Schemes"'
+      'SELECT "Schemes"."schemeId" from "Schemes'
     );
     const schemeIds = schemes[0];
     const schemeNodesArray = [...new Array(12), ...new Array(28)].map(
@@ -40,7 +40,7 @@ module.exports = {
     );
     await queryInterface.bulkInsert("SchemeNodes", schemeNodesArray, {});
     const schemeNodes = await queryInterface.sequelize.query(
-      'SELECT "SchemeNodes"."schemeNodeId" from "SchemeNodes"'
+      'SELECT "SchemeNodes"."schemeNodeId" from "SchemeNodes'
     );
     const schemeNodeIds = schemeNodes[0];
     const schemeOneCard0 = [
@@ -176,19 +176,12 @@ module.exports = {
         SchemeNodeSchemeNodeId: schemeNodeIds[5].schemeNodeId,
         elementType: "spoiler",
         elementText:
-          "Скажите, что вам нужно время обдумать их предложение и назовите срок, когда вы вернетесь с ответом (в идеале не больше 3-4 рабочих дней).",
+          "Скажите, что вам нужно время обдумать их предложение и назовите срок, когда вы вернетесь с ответом (в идеале не больше 3-4 рабочих дней). Не принимайте оффер сразу же так как первый оффер от любой компании ВСЕГДА минимален по сумме, он только открывает пространство переговоров по зарплате.",
       },
       {
         SchemeSchemeId: schemeIds[0].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[5].schemeNodeId,
-        elementType: "spoiler",
-        elementText:
-          "Не принимайте оффер сразу же так как первый оффер от любой компании ВСЕГДА минимален по сумме, он только открывает пространство переговоров по зарплате.",
-      },
-      {
-        SchemeSchemeId: schemeIds[0].schemeId,
-        SchemeNodeSchemeNodeId: schemeNodeIds[5].schemeNodeId,
-        elementType: "spoiler",
+        elementType: "text",
         elementText:
           "Помните, что  зарплата разработчика прежде всего зависит от суммы, в которую он сам себя оценивает.",
       },
@@ -197,7 +190,7 @@ module.exports = {
         SchemeNodeSchemeNodeId: schemeNodeIds[5].schemeNodeId,
         elementType: "text",
         elementText:
-          '"Добрый день, _имя рекрутера__,Благодарю, документ получил(а).Я внимательно ознакомлюсь с оффером и вернусь к вам до день недели/дата. Большое спасибо, что поделились со мной хорошими новостями, будем на связи!"',
+          "Добрый день, _имя рекрутера__,Благодарю, документ получил(а).Я внимательно ознакомлюсь с оффером и вернусь к вам до день недели/дата. Большое спасибо, что поделились со мной хорошими новостями, будем на связи!",
       },
       {
         SchemeSchemeId: schemeIds[0].schemeId,
@@ -230,14 +223,13 @@ module.exports = {
         SchemeNodeSchemeNodeId: schemeNodeIds[6].schemeNodeId,
         elementType: "spoiler",
         elementText:
-          "Если вы получили оффер, на который просят ответить за короткое время (24/48/72 часа), а вы не готовы так быстро принять решение/ждете информации от других работодателей. ",
+          "Если вы получили оффер, на который просят ответить за короткое время (24/48/72 часа), а вы не готовы так быстро принять решение/ждете информации от других работодателей. Не ведитесь на срочность и не переживайте - это просто способ работодателя надавить и поскорее закрыть вакансию.",
       },
       {
         SchemeSchemeId: schemeIds[0].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[6].schemeNodeId,
         elementType: "text",
-        elementText:
-          "Не ведитесь на срочность и не переживайте - это просто способ работодателя надавить и поскорее закрыть вакансию. Напишите ответ HR в таком ключе:",
+        elementText: "Напишите ответ HR в таком ключе:",
       },
       {
         SchemeSchemeId: schemeIds[0].schemeId,
@@ -251,7 +243,7 @@ module.exports = {
         SchemeNodeSchemeNodeId: schemeNodeIds[6].schemeNodeId,
         elementType: "text",
         elementText:
-          'так как нахожусь на финальной стадии переговоров с другими компаниями и этот процесс займет еще примерно неделю. Мне понадобится больше времени, чтобы принять взвешенное решение."',
+          "так как нахожусь на финальной стадии переговоров с другими компаниями и этот процесс займет еще примерно неделю. Мне понадобится больше времени, чтобы принять взвешенное решение.",
       },
       {
         SchemeSchemeId: schemeIds[0].schemeId,
@@ -263,9 +255,9 @@ module.exports = {
       {
         SchemeSchemeId: schemeIds[0].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[6].schemeNodeId,
-        elementType: "spoiler",
+        elementType: "text",
         elementText:
-          '"Очень жаль, мне нравится ваша компания, проект и команда. Решение о выборе работодателя для меня очень важное и ответственное и я никак не могу его принять за такой короткий срок"',
+          "Очень жаль, мне нравится ваша компания, проект и команда. Решение о выборе работодателя для меня очень важное и ответственное и я никак не могу его принять за такой короткий срок",
       },
       {
         SchemeSchemeId: schemeIds[0].schemeId,
@@ -279,7 +271,7 @@ module.exports = {
       {
         SchemeSchemeId: schemeIds[0].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[7].schemeNodeId,
-        elementType: "spoiler",
+        elementType: "text",
         elementText:
           "Если вам сделали отличное предложение, оффер на большую зарплату, чем вы рассчитывали, или хорошее предложение, оффер на среднюю зарплату:",
       },
@@ -358,14 +350,8 @@ module.exports = {
         SchemeSchemeId: schemeIds[0].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[10].schemeNodeId,
         elementType: "spoiler",
-        elementText: "Если вам сделали предложение с низкой зарплатой:",
-      },
-      {
-        SchemeSchemeId: schemeIds[0].schemeId,
-        SchemeNodeSchemeNodeId: schemeNodeIds[10].schemeNodeId,
-        elementType: "text",
         elementText:
-          "Не соглашайтесь, не попробовав поднять сумму, даже если отчаялись и считаете это первым и последним оффером.",
+          "Если вам сделали предложение с низкой зарплатой: Не соглашайтесь, не попробовав поднять сумму, даже если отчаялись и считаете это первым и последним оффером.",
       },
       {
         SchemeSchemeId: schemeIds[0].schemeId,
@@ -434,7 +420,7 @@ module.exports = {
       {
         SchemeSchemeId: schemeIds[1].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[1].schemeNodeId,
-        elementType: "spoiler",
+        elementType: "text",
         elementText:
           "Вы выложили резюме в открытом доступе на HHHabr Career и пр.",
       },
@@ -719,8 +705,8 @@ module.exports = {
       {
         SchemeSchemeId: schemeIds[1].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[10].schemeNodeId,
-        elementType: "spoiler",
-        elementText: '"Холодные" письма. Вы сами пишите HR впервые.',
+        elementType: "text",
+        elementText: 'Холодные" письма. Вы сами пишите HR впервые.',
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
@@ -933,7 +919,7 @@ module.exports = {
         SchemeNodeSchemeNodeId: schemeNodeIds[14].schemeNodeId,
         elementType: "text",
         elementText:
-          "Вы договорились о звонке и в концы Звонка вы задаете рекрутеруHR вопросы:",
+          "Вы договорились о звонке и в концы Звонка вы задаете рекрутеру HR вопросы:",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
@@ -945,13 +931,13 @@ module.exports = {
         SchemeSchemeId: schemeIds[1].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[14].schemeNodeId,
         elementType: "text",
-        elementText: "Когда рекрутерHR даст об этом знать?",
+        elementText: "Когда рекрутер HR даст об этом знать?",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[14].schemeNodeId,
         elementType: "text",
-        elementText: "Не возражает ли рекрутерHR, если вы напомните о себе?",
+        elementText: "Не возражает ли рекрутер HR, если вы напомните о себе?",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
@@ -1244,14 +1230,8 @@ module.exports = {
         SchemeSchemeId: schemeIds[1].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[22].schemeNodeId,
         elementType: "spoiler",
-        elementText: "Срочно писать вашему карьерному коучу!!!!!!!",
-      },
-      {
-        SchemeSchemeId: schemeIds[1].schemeId,
-        SchemeNodeSchemeNodeId: schemeNodeIds[22].schemeNodeId,
-        elementType: "text",
         elementText:
-          "NOTE: коуч поможет вам понять что ОК или НЕ ОК в оффере, подскажет как поторговаться по условиям и конечно разделит с вами вашу победу",
+          "Срочно писать вашему карьерному коучу!!!!!!! NOTE: коуч поможет вам понять что ОК или НЕ ОК в оффере, подскажет как поторговаться по условиям и конечно разделит с вами вашу победу",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
