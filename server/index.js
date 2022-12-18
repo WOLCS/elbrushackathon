@@ -12,7 +12,6 @@ const errorHandler = require("./error/error-handler");
 
 const app = express();
 
-// app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
@@ -28,7 +27,7 @@ const start = async () => {
     await sequelize.authenticate();
     await sequelize.sync();
 
-    //const webAppUrl = 'https://ornate-selkie-c27577.netlify.app';
+    const webAppUrl = "https://elbrushackathon.vercel.app";
     const bot = new TelegramBot(token, { polling: true });
 
     bot.on("message", async (msg) => {
@@ -43,7 +42,7 @@ const start = async () => {
               [
                 {
                   text: "Пройти обучение",
-                  web_app: { url: "https://elbrushackathon.vercel.app" },
+                  web_app: { url: webAppUrl },
                 },
               ],
               [{ text: "Скачать схему", callback_data: "scheme" }],
@@ -65,13 +64,55 @@ const start = async () => {
       if (!chatId) return;
       if (msg.data === "scheme") {
         await bot.sendMessage(chatId, "Отправляю Вашу схему!");
-        return bot.sendDocument(chatId, "./static/document.pdf");
+        await bot.sendDocument(chatId, "./static/document.pdf");
+        return bot.sendMessage(chatId, "Выбери опцию", {
+          parse_mode: "HTML",
+          reply_markup: {
+            inline_keyboard: [
+              [
+                {
+                  text: "Пройти обучение",
+                  web_app: { url: "https://elbrushackathon.vercel.app" },
+                },
+              ],
+              [{ text: "Скачать схему", callback_data: "scheme" }],
+              [{ text: "Получить мем", callback_data: "meme" }],
+              [
+                {
+                  text: `Написать карьерному коучу (${consultantData.name})`,
+                  url: consultantData.link,
+                },
+              ],
+            ],
+          },
+        });
       }
 
       if (msg.data === "meme") {
         await bot.sendMessage(chatId, "Лови мем!");
         const randomNumber = Math.floor(Math.random() * 22) + 1;
-        return bot.sendPhoto(chatId, `./static/memes/${randomNumber}.jpg`);
+        await bot.sendPhoto(chatId, `./static/memes/${randomNumber}.jpg`);
+        return bot.sendMessage(chatId, "Выбери опцию", {
+          parse_mode: "HTML",
+          reply_markup: {
+            inline_keyboard: [
+              [
+                {
+                  text: "Пройти обучение",
+                  web_app: { url: "https://elbrushackathon.vercel.app" },
+                },
+              ],
+              [{ text: "Скачать схему", callback_data: "scheme" }],
+              [{ text: "Получить мем", callback_data: "meme" }],
+              [
+                {
+                  text: `Написать карьерному коучу (${consultantData.name})`,
+                  url: consultantData.link,
+                },
+              ],
+            ],
+          },
+        });
       }
 
       return bot.sendMessage(
