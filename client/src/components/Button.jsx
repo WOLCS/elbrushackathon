@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Button as BaseButton } from '@mantine/core'
 
-export const Button = ({ children, nextSchemeNodeId }) => {
-   return (
+export const Button = ({ children, nextSchemeNodeId }) => (
       <Link to={'/' + nextSchemeNodeId}>
          <BaseButton
             sx={theme => ({
@@ -19,4 +18,4 @@ export const Button = ({ children, nextSchemeNodeId }) => {
          </BaseButton>
       </Link>
    )
-}
+
