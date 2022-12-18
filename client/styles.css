@@ -1,57 +1,64 @@
 .header {
-  padding-left: 40px;
-  padding-right: 40px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 70px;
-  background-color: #F8F6FC;
-  border-bottom: 1px solid rgba(217, 217, 217, 1);
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70px;
+    background-color: #F8F6FC;
+    border-bottom: 1px solid rgba(217, 217, 217, 1);
 }
+
 .navButton {
+    height: 48px;
     display: flex;
     text-align: center;
     justify-content: center;
     font-size: 22px;
     width: 27vh;
     color: rgb(41, 237, 255);
+    align-items: center;
     text-decoration: none;
     background-color: #4520AB;
     border-radius: 20px;
     font-family: RF Rostin;
-  } 
-  .navButton:hover {
+}
+
+.navButton:hover {
     text-decoration: underline;
     color: grey;
-  }
-  .categoryButton {
+}
+
+.categoryButton {
     background-color: #FFBC5B;
     color: black;
     font-family: RF Rostin;
     border-radius: 20px;
     width: 50vh;
     text-transform: uppercase;
-  }
-  .categoryButton:hover {
+}
+
+.categoryButton:hover {
     background-color: #4520AB;
     color: white;
-  }
+}
 
-  .questionBox {
+.questionBox {
     padding-top: 5vh;
     padding-bottom: 5vh;
     justify-content: center;
     line-height: 1.5;
     letter-spacing: 0.00938em;
-    font-family: 'Inter','Roboto',sans-serif;
+    font-family: 'Inter', 'Roboto', sans-serif;
     background-color: white;
     border-radius: 24px;
     border-bottom: 1px solid rgba(217, 217, 217, 1);
     border-top: 1px solid rgba(217, 217, 217, 1);
     box-shadow: rgb(227 225 237 / 68%) -2px -2px 7px, rgb(223 221 231 / 76%) 1px 1px 10px;
 
-  }
-  .questionBody {
+}
+
+.questionBody {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -60,10 +67,10 @@
     padding-left: 8vh;
     padding-right: 8vh;
     /* background-color: #F8F6FC; */
-  }
-  .homeTitle {
+}
+
+.homeTitle {
     padding-top: 20vh;
     display: flex;
     flex-direction: column;
-  }
-
+}
