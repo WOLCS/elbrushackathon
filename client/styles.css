@@ -92,14 +92,7 @@ body {
 
 
 .homeTitle {
-  padding-top: 20vh;
-  display: flex;
-  flex-direction: column;
-}
-
-#back-nav:hover {
-  fill: #FFBC5B;
-}
-#home-nav:hover {
-  fill: #FFBC5B;
+    padding-top: 20vh;
+    display: flex;
+    flex-direction: column;
 }
