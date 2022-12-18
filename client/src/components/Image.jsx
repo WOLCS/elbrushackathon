@@ -1,9 +1,6 @@
-import { Image as BaseText } from '@mantine/core'
-import { useGetImagesQuery } from '../api/botApi'
-
-
-export const Image = ({elementLink, elementText}) => {
-
-    const { data: image } = useGetImagesQuery(elementLink);
-    return <BaseText src={image} alt={elementText || 'img'} height={180} />
+import { Image as BaseImage } from '@mantine/core'
+import { BASE_URL } from '../api/botApi'
+export const Image = ({ elementLink, elementText }) => {
+   const url = `${BASE_URL}/${elementLink}`
+   return <BaseImage src={url} alt={elementText || 'img'} height={180} />
 }
