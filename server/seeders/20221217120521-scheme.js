@@ -961,7 +961,7 @@ module.exports = {
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
-        SchemeNodeSchemeNodeId: schemeNodeIds[14].schemeNodeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[12].schemeNodeId,
         schemeId: schemeIds[1].schemeId,
         next: schemeNodeIds[14].schemeNodeId,
         elementType: "button",
@@ -1019,7 +1019,7 @@ module.exports = {
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
-        SchemeNodeSchemeNodeId: schemeNodeIds[14].schemeNodeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[13].schemeNodeId,
         schemeId: schemeIds[1].schemeId,
         next: schemeNodeIds[14].schemeNodeId,
         elementType: "button",
