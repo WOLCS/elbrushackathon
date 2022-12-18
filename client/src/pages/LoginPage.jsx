@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router-dom'
 import JWTDecode from 'jwt-decode'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import '../../styles.css'
 import { usePostCredentialsMutation } from '../api/botApi'
 import { updateUser } from '../store/botReducer'
+
 export const LoginPage = () => {
    const [auth, properties] = usePostCredentialsMutation()
    const navigate = useNavigate()

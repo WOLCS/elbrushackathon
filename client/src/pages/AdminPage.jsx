@@ -2,16 +2,14 @@ import React from 'react'
 import { Container, Flex, Header, ScrollArea, Table } from '@mantine/core'
 import { useListState } from '@mantine/hooks'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
-import '../../styles.css'
 import { useGetSchemesFullQuery } from '../api/botApi'
+
 export const AdminPage = () => {
-   console.log('sdfsdf')
-   const { data, isLoading, isError } = useGetSchemesFullQuery()
+   const { data, isLoading } = useGetSchemesFullQuery()
    const [state, handlers] = useListState(data)
    React.useEffect(() => {
       handlers.setState(data)
    }, [isLoading])
-   console.log(state, handlers)
    const items = state?.map((item, index) => (
       <Draggable key={item.symbol} index={index} draggableId={item.symbol}>
          {(provided, i) => (

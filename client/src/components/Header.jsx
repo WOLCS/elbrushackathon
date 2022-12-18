@@ -1,17 +1,11 @@
-
-import '../../styles.css'
-import { Back } from '../assests/Back'
-
+import { IconBack } from './IconBack'
 import { Home } from '../assests/Home'
-
 
 export function Header() {
    return (
       <header className="header">
-
-         <Back />
-         <Home/>
-
+         <IconBack />
+         <Home />
       </header>
    )
 }

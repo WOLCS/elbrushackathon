@@ -1,4 +1,5 @@
 export { Button } from './Button'
+export { IconBack } from './IconBack'
 export { Header } from './Header'
 export { Layout } from './Layout'
 export { LoadingOverlay } from './LoadingOverlay'
