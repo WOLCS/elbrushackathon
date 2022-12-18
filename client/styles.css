@@ -29,6 +29,8 @@
     color: black;
     font-family: RF Rostin;
     border-radius: 20px;
+    width: 50vh;
+    text-transform: uppercase;
   }
   .categoryButton:hover {
     background-color: #4520AB;
@@ -50,6 +52,18 @@
 
   }
   .questionBody {
-    background-color: #F8F6FC;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    padding-left: 8vh;
+    padding-right: 8vh;
+    /* background-color: #F8F6FC; */
   }
-  
+  .homeTitle {
+    padding-top: 20vh;
+    display: flex;
+    flex-direction: column;
+  }
+

@@ -4,7 +4,9 @@ import { Provider as StoreProvider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { MantineProvider } from '@mantine/core'
 import { store } from './store/store'
+import { GlobalStyles } from './styles/GlobalStyles'
 import { App } from './App'
+import { theme } from './styles/theme'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
    <React.StrictMode>
