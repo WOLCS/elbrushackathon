@@ -391,7 +391,7 @@ module.exports = {
       {
         SchemeSchemeId: schemeIds[0].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[10].schemeNodeId,
-        elementType: "spoiler",
+        elementType: "text",
         elementText:
           "Если вам сделали предложение с низкой зарплатой: Не соглашайтесь, не попробовав поднять сумму, даже если отчаялись и считаете это первым и последним оффером.",
       },
@@ -1384,7 +1384,7 @@ module.exports = {
       {
         SchemeSchemeId: schemeIds[1].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[22].schemeNodeId,
-        elementType: "spoiler",
+        elementType: "text",
         elementText:
           "Срочно писать вашему карьерному коучу!!!!!!! NOTE: коуч поможет вам понять что ОК или НЕ ОК в оффере, подскажет как поторговаться по условиям и конечно разделит с вами вашу победу",
       },
