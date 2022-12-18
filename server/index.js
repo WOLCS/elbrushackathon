@@ -35,7 +35,7 @@ const start = async () => {
       const text = msg.text;
 
       if (text === "/start") {
-        await bot.sendMessage(chatId, "Выбери опцию", {
+        await bot.sendMessage(chatId, "Выбери опцию:", {
           parse_mode: "HTML",
           reply_markup: {
             inline_keyboard: [
@@ -45,7 +45,18 @@ const start = async () => {
                   web_app: { url: webAppUrl },
                 },
               ],
-              [{ text: "Скачать схему", callback_data: "scheme" }],
+              [
+                {
+                  text: "Скачать схему поиска работы",
+                  callback_data: "scheme",
+                },
+              ],
+              [
+                {
+                  text: "Скачать список вопросов к HR",
+                  callback_data: "questions",
+                },
+              ],
               [{ text: "Получить мем", callback_data: "meme" }],
               [
                 {
@@ -64,8 +75,8 @@ const start = async () => {
       if (!chatId) return;
       if (msg.data === "scheme") {
         await bot.sendMessage(chatId, "Отправляю Вашу схему!");
-        await bot.sendDocument(chatId, "./static/document.pdf");
-        return bot.sendMessage(chatId, "Выбери опцию", {
+        await bot.sendDocument(chatId, "./static/scheme.pdf");
+        return bot.sendMessage(chatId, "Выбери опцию:", {
           parse_mode: "HTML",
           reply_markup: {
             inline_keyboard: [
@@ -75,7 +86,54 @@ const start = async () => {
                   web_app: { url: "https://elbrushackathon.vercel.app" },
                 },
               ],
-              [{ text: "Скачать схему", callback_data: "scheme" }],
+              [
+                {
+                  text: "Скачать схему поиска работы",
+                  callback_data: "scheme",
+                },
+              ],
+              [
+                {
+                  text: "Скачать список вопросов к HR",
+                  callback_data: "questions",
+                },
+              ],
+              [{ text: "Получить мем", callback_data: "meme" }],
+              [
+                {
+                  text: `Написать карьерному коучу (${consultantData.name})`,
+                  url: consultantData.link,
+                },
+              ],
+            ],
+          },
+        });
+      }
+      if (msg.data === "questions") {
+        await bot.sendMessage(chatId, "Отправляю Вам список вопросов:");
+        await bot.sendDocument(chatId, "./static/questions.pdf");
+        return bot.sendMessage(chatId, "Выбери опцию:", {
+          parse_mode: "HTML",
+          reply_markup: {
+            inline_keyboard: [
+              [
+                {
+                  text: "Пройти обучение",
+                  web_app: { url: "https://elbrushackathon.vercel.app" },
+                },
+              ],
+              [
+                {
+                  text: "Скачать схему поиска работы",
+                  callback_data: "scheme",
+                },
+              ],
+              [
+                {
+                  text: "Скачать список вопросов к HR",
+                  callback_data: "questions",
+                },
+              ],
               [{ text: "Получить мем", callback_data: "meme" }],
               [
                 {
@@ -89,10 +147,10 @@ const start = async () => {
       }
 
       if (msg.data === "meme") {
-        await bot.sendMessage(chatId, "Лови мем!");
+        // await bot.sendMessage(chatId, "Лови мем!");
         const randomNumber = Math.floor(Math.random() * 22) + 1;
         await bot.sendPhoto(chatId, `./static/memes/${randomNumber}.jpg`);
-        return bot.sendMessage(chatId, "Выбери опцию", {
+        return bot.sendMessage(chatId, "Выбери опцию:", {
           parse_mode: "HTML",
           reply_markup: {
             inline_keyboard: [
@@ -102,7 +160,18 @@ const start = async () => {
                   web_app: { url: "https://elbrushackathon.vercel.app" },
                 },
               ],
-              [{ text: "Скачать схему", callback_data: "scheme" }],
+              [
+                {
+                  text: "Скачать схему поиска работы",
+                  callback_data: "scheme",
+                },
+              ],
+              [
+                {
+                  text: "Скачать список вопросов к HR",
+                  callback_data: "questions",
+                },
+              ],
               [{ text: "Получить мем", callback_data: "meme" }],
               [
                 {

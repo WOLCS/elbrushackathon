@@ -24,9 +24,12 @@ export const GlobalStyles = () => {
                '*, *::before, *::after': {
                   boxSizing: 'border-box'
                },
+
                body: {
                   height: '100%',
-                  backgroundColor: '#f3f1f8'
+                  backgroundColor: '#f3f1f8',
+                  display: 'flex',
+                  justifyContent: 'center'
                }
             }
          ]}

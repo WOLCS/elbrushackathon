@@ -136,7 +136,7 @@ module.exports = {
         schemeId: schemeIds[0].schemeId,
         next: schemeNodeIds[4].schemeNodeId,
         elementType: "button",
-        elementText: "Сообщить другим работодателям",
+        elementText: "Сообщить другим HR",
       },
       {
         SchemeSchemeId: schemeIds[0].schemeId,
@@ -219,7 +219,7 @@ module.exports = {
         schemeId: schemeIds[0].schemeId,
         next: schemeNodeIds[6].schemeNodeId,
         elementType: "button",
-        elementText: "Почему не следует торопиться",
+        elementText: "Не следует торопиться",
       },
       {
         SchemeSchemeId: schemeIds[0].schemeId,
@@ -227,7 +227,7 @@ module.exports = {
         schemeId: schemeIds[0].schemeId,
         next: schemeNodeIds[7].schemeNodeId,
         elementType: "button",
-        elementText: "Вы получили хороший оффер",
+        elementText: "У меня хороший оффер",
       },
       {
         SchemeSchemeId: schemeIds[0].schemeId,
@@ -235,7 +235,7 @@ module.exports = {
         schemeId: schemeIds[0].schemeId,
         next: schemeNodeIds[10].schemeNodeId,
         elementType: "button",
-        elementText: "Вы получили не очень хороший оффер",
+        elementText: "У меня не очень хороший оффер",
       },
     ];
     const schemeOneCard6 = [
@@ -323,7 +323,7 @@ module.exports = {
         schemeId: schemeIds[0].schemeId,
         next: schemeNodeIds[8].schemeNodeId,
         elementType: "button",
-        elementText: "Решил не торговаться, условия меня устраивают",
+        elementText: "Решил не торговаться",
       },
       {
         SchemeSchemeId: schemeIds[0].schemeId,
@@ -331,7 +331,7 @@ module.exports = {
         schemeId: schemeIds[0].schemeId,
         next: schemeNodeIds[9].schemeNodeId,
         elementType: "button",
-        elementText: "Решил попытать счастья/не все условия меня устраивают",
+        elementText: "Решил попытать счастья",
       },
     ];
     const schemeOneCard8 = [
@@ -454,7 +454,7 @@ module.exports = {
         schemeId: schemeIds[1].schemeId,
         next: schemeNodeIds[1].schemeNodeId,
         elementType: "button",
-        elementText: "Размещение резюме в открытом доступе",
+        elementText: "Размещение резюме на HH",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
@@ -486,8 +486,7 @@ module.exports = {
         schemeId: schemeIds[1].schemeId,
         next: schemeNodeIds[3].schemeNodeId,
         elementType: "button",
-        elementText:
-          "Вы откликнулись, и вам ответили 'Спасибо, мы внесли ваше резюме в базу",
+        elementText: '"Мы сохранили ваше резюме"',
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
@@ -495,7 +494,7 @@ module.exports = {
         schemeId: schemeIds[1].schemeId,
         next: schemeNodeIds[2].schemeNodeId,
         elementType: "button",
-        elementText: "HR сама связалась с предложением созвониться",
+        elementText: "HR сама связалась",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
@@ -503,7 +502,7 @@ module.exports = {
         schemeId: schemeIds[1].schemeId,
         next: schemeNodeIds[4].schemeNodeId,
         elementType: "button",
-        elementText: "Вы сами откликнулись, и вас пригласили",
+        elementText: "Вы сами откликнулись",
       },
     ];
     const schemeTwoCard2 = [
@@ -573,7 +572,7 @@ module.exports = {
         schemeId: schemeIds[1].schemeId,
         next: schemeNodeIds[5].schemeNodeId,
         elementType: "button",
-        elementText: "Возможно, но в резюме не указана ЗП",
+        elementText: "В резюме не указана ЗП",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
@@ -599,7 +598,7 @@ module.exports = {
         schemeId: schemeIds[1].schemeId,
         next: schemeNodeIds[6].schemeNodeId,
         elementType: "button",
-        elementText: "У вас есть оффер",
+        elementText: "Есть оффер",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
@@ -607,7 +606,7 @@ module.exports = {
         schemeId: schemeIds[1].schemeId,
         next: schemeNodeIds[7].schemeNodeId,
         elementType: "button",
-        elementText: "У вас нет оффера, и вы хотите уточнить по ЗП",
+        elementText: "Пока нет оффера",
       },
     ];
     const schemeTwoCard6 = [
@@ -781,8 +780,13 @@ module.exports = {
         SchemeSchemeId: schemeIds[1].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[9].schemeNodeId,
         elementType: "text",
-        elementText:
-          "Вопросы для подготовки к собеседованию с HR: https://docs.google.com/document/d/1fRN77t5175Df4fTns0qULSKE4eK5Ecy4AS6qeSY_o1U/edit?usp=sharing",
+        elementText: "Вопросы для подготовки к собеседованию с HR: ",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[9].schemeNodeId,
+        elementType: "text",
+        elementText: "shorturl.at/dhNOU",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
@@ -797,7 +801,7 @@ module.exports = {
         schemeId: schemeIds[1].schemeId,
         next: schemeNodeIds[14].schemeNodeId,
         elementType: "button",
-        elementText: "Какие вопросы стоит задать сотруднику HR?",
+        elementText: "Что спросить у HR?",
       },
     ];
     const schemeTwoCard10 = [
@@ -1088,7 +1092,7 @@ module.exports = {
         schemeId: schemeIds[1].schemeId,
         next: schemeNodeIds[16].schemeNodeId,
         elementType: "button",
-        elementText: "Рекрутер не выходит на связь",
+        elementText: "HR не выходит на связь",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
@@ -1096,7 +1100,7 @@ module.exports = {
         schemeId: schemeIds[1].schemeId,
         next: schemeNodeIds[20].schemeNodeId,
         elementType: "button",
-        elementText: "Рекрутер вышла с фидбеком, и это отказ(((",
+        elementText: "Я получил отказ(((",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
@@ -1104,7 +1108,7 @@ module.exports = {
         schemeId: schemeIds[1].schemeId,
         next: schemeNodeIds[22].schemeNodeId,
         elementType: "button",
-        elementText: "Рекрутер вышла с фидбеком, и это оффер!!!",
+        elementText: "Я получил оффер!!!",
       },
     ];
     const schemeTwoCard16 = [
@@ -1128,7 +1132,7 @@ module.exports = {
         schemeId: schemeIds[1].schemeId,
         next: schemeNodeIds[18].schemeNodeId,
         elementType: "button",
-        elementText: "Если очень хотите в эту компанию",
+        elementText: "Хочу в эту компанию!",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
@@ -1136,7 +1140,7 @@ module.exports = {
         schemeId: schemeIds[1].schemeId,
         next: schemeNodeIds[19].schemeNodeId,
         elementType: "button",
-        elementText: "Если у вас уже есть другой оффер, и вы торопитесь",
+        elementText: "Если есть другой оффер",
       },
     ];
     const schemeTwoCard17 = [
@@ -1334,7 +1338,7 @@ module.exports = {
         schemeId: schemeIds[1].schemeId,
         next: schemeNodeIds[21].schemeNodeId,
         elementType: "button",
-        elementText: "Если сложились хорошие отношения с HR",
+        elementText: "Если хорошие отношения с HR",
       },
     ];
     const schemeTwoCard21 = [
@@ -1403,7 +1407,7 @@ module.exports = {
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
-        SchemeNodeSchemeNodeId: schemeNodeIds[23].schemeNodeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[22].schemeNodeId,
         schemeId: schemeIds[1].schemeId,
         next: schemeNodeIds[23].schemeNodeId,
         elementType: "button",
@@ -1415,7 +1419,7 @@ module.exports = {
         schemeId: schemeIds[1].schemeId,
         next: schemeNodeIds[24].schemeNodeId,
         elementType: "button",
-        elementText: "Да, но вас не устраивают условия",
+        elementText: "Не устраивают условия",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
@@ -1525,7 +1529,7 @@ module.exports = {
         schemeId: schemeIds[1].schemeId,
         next: schemeNodeIds[26].schemeNodeId,
         elementType: "button",
-        elementText: "Отказ без объяснения причины",
+        elementText: "Без объяснения причины",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
@@ -1533,7 +1537,7 @@ module.exports = {
         schemeId: schemeIds[1].schemeId,
         next: schemeNodeIds[27].schemeNodeId,
         elementType: "button",
-        elementText: "Отказ с объяснением причины",
+        elementText: "С объяснением причины",
       },
     ];
     const schemeTwoCard26 = [
