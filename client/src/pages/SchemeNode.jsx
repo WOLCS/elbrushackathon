@@ -21,8 +21,8 @@ export const SchemeNode = () => {
    ) : isError ? (
       <ServerErrorPage />
    ) : (
-      <Container size="sm">
-         <Flex gap="xl" align="stretch" direction="column">
+      <Container className='questionBody'>
+         <Flex gap="xl" direction="column">
             {schemeNode.elements?.map(({ elementType, elementText, schemeNodeId, elementLink, next, elementId }) => {
                const Component = componentToType[elementType]
                return (
