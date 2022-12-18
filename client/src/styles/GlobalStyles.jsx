@@ -19,6 +19,15 @@ export const GlobalStyles = () => {
                   fontWeight: 700,
                   fontStyle: 'bold'
                }
+            },
+            {
+               '*, *::before, *::after': {
+                  boxSizing: 'border-box'
+               },
+               body: {
+                  height: '100%',
+                  backgroundColor: '#f3f1f8'
+               }
             }
          ]}
       />
