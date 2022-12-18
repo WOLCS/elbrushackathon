@@ -15,7 +15,6 @@ const componentToType = {
 export const SchemeNode = () => {
    const { schemeNodeId } = useParams()
    const { data: schemeNode, isLoading, isError } = useGetSchemeNodeQuery(schemeNodeId)
-   console.log(schemeNodeId);
    
    return isLoading ? (
       <LoadingOverlay />
