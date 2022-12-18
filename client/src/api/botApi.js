@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-const BASE_URL = 'https://elbrushackathon-jet.vercel.app/api'
+export const BASE_URL = 'https://elbrushackathon-jet.vercel.app'
 
 export const botApiSlice = createApi({
    reducerPath: 'botApi',
@@ -13,9 +13,8 @@ export const botApiSlice = createApi({
          query: id => ({ url: `/api/node/${id}` })
       }),
       getImages: builder.query({
-         query: elementLink => ({ url: `/${elementLink}`})
+         query: elementLink => ({ url: `/${elementLink}` })
       })
-
    })
 })
 
