@@ -17,12 +17,12 @@ export const HomePage = () => {
       <ServerErrorPage />
    ) : (
       <Container className="homeTitle">
-         <Center style={{ width: 500, height: 200 }}>
-            <Title order={1}>Выбери тему обучения</Title>
+         <Center>
+            <Title color={'#4520ab'} order={1}>ТEМА ОБУЧЕНИЯ</Title>
          </Center>
          <Flex
-            mih={150}
-            bg="rgb(255, 255, 255)"
+            mih={300}
+            bg="#f3f1f8;"
             gap="md"
             justify="center"
             align="center"

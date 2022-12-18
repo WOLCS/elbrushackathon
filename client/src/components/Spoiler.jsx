@@ -8,3 +8,4 @@ export const Spoiler = ({ elementText }) => {
       </MantineSpoiler>
    )
 }
+ 
