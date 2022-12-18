@@ -20,12 +20,11 @@ module.exports = {
       ],
       {}
     );
-
     const schemes = await queryInterface.sequelize.query(
       'SELECT "Schemes"."schemeId" from "Schemes"'
     );
     const schemeIds = schemes[0];
-    const schemeNodesArray = [...new Array(12), ...new Array(4)].map(
+    const schemeNodesArray = [...new Array(12), ...new Array(28)].map(
       (el, i) => {
         if (i < 12) {
           return {
@@ -39,9 +38,7 @@ module.exports = {
         };
       }
     );
-
     await queryInterface.bulkInsert("SchemeNodes", schemeNodesArray, {});
-
     const schemeNodes = await queryInterface.sequelize.query(
       'SELECT "SchemeNodes"."schemeNodeId" from "SchemeNodes"'
     );
@@ -399,7 +396,7 @@ module.exports = {
         SchemeNodeSchemeNodeId: schemeNodeIds[11].schemeNodeId,
         elementType: "text",
         elementText:
-          "В других компаниях, с которыми я веду переговоры, предлагается более высокий уровень дохода. Давайте обсудимпредлагаю пересмотреть размер зарплаты до (сумма).",
+          "В других компаниях, с которыми я веду переговоры, предлагается более высокий уровень дохода. Давайте обсудим/предлагаю пересмотреть размер зарплаты до (сумма).",
       },
       {
         SchemeSchemeId: schemeIds[0].schemeId,
@@ -413,25 +410,8 @@ module.exports = {
       {
         SchemeSchemeId: schemeIds[1].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[0].schemeNodeId,
-        elementType: "spoiler",
-        elementText:
-          "Вы выложили резюме в открытом доступе на HHHabr Career и пр.",
-      },
-      {
-        SchemeSchemeId: schemeIds[1].schemeId,
-        SchemeNodeSchemeNodeId: schemeNodeIds[0].schemeNodeId,
         elementType: "text",
-        elementText:
-          "Присоединяем сопроводительное письмо + одностраничное резюме отдельным файлом!",
-      },
-      {
-        SchemeSchemeId: schemeIds[1].schemeId,
-        SchemeNodeSchemeNodeId: schemeNodeIds[0].schemeNodeId,
-        schemeId: schemeIds[1].schemeId,
-        next: schemeNodeIds[2].schemeNodeId,
-        elementType: "button",
-        elementText:
-          "Вы откликнулись, и вам ответили 'Спасибо, мы внесли ваше резюме в базу",
+        elementText: "Какой метод поиска работы вас интересует?",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
@@ -439,23 +419,31 @@ module.exports = {
         schemeId: schemeIds[1].schemeId,
         next: schemeNodeIds[1].schemeNodeId,
         elementType: "button",
-        elementText: "HR сама связалась с предложением созвониться",
+        elementText: "Размещение резюме в открытом доступе",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[0].schemeNodeId,
         schemeId: schemeIds[1].schemeId,
-        next: schemeNodeIds[3].schemeNodeId,
+        next: schemeNodeIds[10].schemeNodeId,
         elementType: "button",
-        elementText: "Вы сами откликнулись, и вас пригласили",
+        elementText: "'Холодные' письма HR",
       },
     ];
     const schemeTwoCard1 = [
       {
         SchemeSchemeId: schemeIds[1].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[1].schemeNodeId,
+        elementType: "spoiler",
+        elementText:
+          "Вы выложили резюме в открытом доступе на HHHabr Career и пр.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[1].schemeNodeId,
         elementType: "text",
-        elementText: "Поздравляю, резюме работает!",
+        elementText:
+          "Присоединяем сопроводительное письмо + одностраничное резюме отдельным файлом!",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
@@ -463,7 +451,24 @@ module.exports = {
         schemeId: schemeIds[1].schemeId,
         next: schemeNodeIds[3].schemeNodeId,
         elementType: "button",
-        elementText: "Далее",
+        elementText:
+          "Вы откликнулись, и вам ответили 'Спасибо, мы внесли ваше резюме в базу",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[1].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        next: schemeNodeIds[2].schemeNodeId,
+        elementType: "button",
+        elementText: "HR сама связалась с предложением созвониться",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[1].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        next: schemeNodeIds[4].schemeNodeId,
+        elementType: "button",
+        elementText: "Вы сами откликнулись, и вас пригласили",
       },
     ];
     const schemeTwoCard2 = [
@@ -471,15 +476,15 @@ module.exports = {
         SchemeSchemeId: schemeIds[1].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[2].schemeNodeId,
         elementType: "text",
-        elementText:
-          "Поблагодарите HR и напишите емкое сообщение, налаживая коммуникацию с первого касания. Например:",
+        elementText: "Поздравляю, резюме работает!",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[2].schemeNodeId,
-        elementType: "text",
-        elementText:
-          "Здравствуйте (Имя HR-менеджера). Благодарю Вас за внимание, проявленное к моей кандидатуре. Буду рад(а) оставаться с вами на связи и получить приглашение на собеседование.С уважением, (Ваше имя).",
+        schemeId: schemeIds[1].schemeId,
+        next: schemeNodeIds[4].schemeNodeId,
+        elementType: "button",
+        elementText: "Далее",
       },
     ];
     const schemeTwoCard3 = [
@@ -488,31 +493,968 @@ module.exports = {
         SchemeNodeSchemeNodeId: schemeNodeIds[3].schemeNodeId,
         elementType: "text",
         elementText:
-          "Ура! Вас заметили! Хотите продолжить общение по вакансии?",
+          "Поблагодарите HR и напишите емкое сообщение, налаживая коммуникацию с первого касания. Например:",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[3].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Здравствуйте (Имя HR-менеджера). Благодарю Вас за внимание, проявленное к моей кандидатуре. Буду рад(а) оставаться с вами на связи и получить приглашение на собеседование.С уважением, (Ваше имя).",
+      },
+    ];
+    const schemeTwoCard4 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[4].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Ура! Вас заметили! Хотите продолжить общение по вакансии?",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[4].schemeNodeId,
         schemeId: schemeIds[1].schemeId,
-        next: schemeNodeIds[4].schemeNodeId,
+        next: schemeNodeIds[5].schemeNodeId,
         elementType: "button",
         elementText: "Возможно, но в резюме не указана ЗП",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
-        SchemeNodeSchemeNodeId: schemeNodeIds[3].schemeNodeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[4].schemeNodeId,
         schemeId: schemeIds[1].schemeId,
-        next: schemeNodeIds[5].schemeNodeId,
+        next: schemeNodeIds[8].schemeNodeId,
         elementType: "button",
-        elementText: "Да",
+        elementText: "Нет",
       },
       {
         SchemeSchemeId: schemeIds[1].schemeId,
-        SchemeNodeSchemeNodeId: schemeNodeIds[1].schemeNodeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[4].schemeNodeId,
         schemeId: schemeIds[1].schemeId,
-        next: schemeNodeIds[6].schemeNodeId,
+        next: schemeNodeIds[9].schemeNodeId,
+        elementType: "button",
+        elementText: "Да",
+      },
+    ];
+    const schemeTwoCard5 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[5].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        next: schemeNodeIds[7].schemeNodeId,
+        elementType: "button",
+        elementText: "У вас есть оффер",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[5].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        next: schemeNodeIds[8].schemeNodeId,
+        elementType: "button",
+        elementText: "У вас нет оффера, и вы хотите уточнить по ЗП",
+      },
+    ];
+    const schemeTwoCard6 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[6].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Как спросить про заработную плату, если она не указана в вакансии?",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[6].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Здравствуйте (Имя HR-менеджера). Спасибо за интересное предложение. Я ознакомился(лась) с условиями, готов(а) начать общение и рассказать о своем опыте работы.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[6].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Пожалуйста, уточните размер оклада (на руки) на данной позиции?",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[6].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Дело в том, что я сейчас в процессе оформления документов в другой компании и хочу понимать есть ли смысл менять ситуацию или нет. Спасибо за понимание.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[6].schemeNodeId,
+        elementType: "text",
+        elementText: "С уважением, (Ваше имя).",
+      },
+    ];
+    const schemeTwoCard7 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[7].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Как спросить про заработную плату, если она не указана в вакансии?",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[7].schemeNodeId,
+        elementType: "text",
+        elementText: "Здравствуйте (Имя HR-менеджера).",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[7].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Спасибо за интересное предложение. Я ознакомился(лась) с условиями, готов(а) начать общение и рассказать о своем опыте работы.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[7].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Пожалуйста, уточните размер оклада (на руки) на данной позиции? Спасибо за понимание. ",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[7].schemeNodeId,
+        elementType: "text",
+        elementText: "С уважением, (Ваше имя).",
+      },
+    ];
+    const schemeTwoCard8 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[8].schemeNodeId,
+        elementType: "text",
+        elementText: "Как отказаться от вакансии.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[8].schemeNodeId,
+        elementType: "text",
+        elementText: "Здравствуйте (Имя HR-менеджера).",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[8].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Благодарю Вас за внимание, проявленное к моей кандидатуре и предложение о сотрудничестве. К сожалению, в настоящее время я вынужден(а)  отказаться от вашего предложения, так как:",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[8].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "не рассматриваю позицию FrontBackFullstack или стэк...., рассматриваю только удаленный формат работы, принял оффер от другой компании, завершил(а) поиски работы...",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[8].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Буду рад(а) оставаться с вами на связи и сообщу вам, если возобновлю поиск работы.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[8].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Желаю вам успехов в поиске подходящего кандидата на эту должность. Всего наилучшего вам и (название компании)!",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[8].schemeNodeId,
+        elementType: "text",
+        elementText: "С уважением, (Ваше имя).",
+      },
+    ];
+    const schemeTwoCard9 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[9].schemeNodeId,
+        elementType: "text",
+        elementText: "Здравствуйте (Имя HR-менеджера).",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[9].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Спасибо за интересное предложение. Я ознакомился(лась) с условиями, готов(а) начать общение и рассказать о своем опыте работы.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[9].schemeNodeId,
+        elementType: "text",
+        elementText: "Когда вам будет удобно созвониться?",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[9].schemeNodeId,
+        elementType: "text",
+        elementText: "С уважением, (Ваше имя).",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[9].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Вопросы для подготовки к собеседованию с HR: https://docs.google.com/document/d/1fRN77t5175Df4fTns0qULSKE4eK5Ecy4AS6qeSY_o1U/edit?usp=sharing",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[9].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        next: schemeNodeIds[14].schemeNodeId,
+        elementType: "button",
+        elementText: "Какие вопросы стоит задать сотруднику HR?",
+      },
+    ];
+    const schemeTwoCard10 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[10].schemeNodeId,
+        elementType: "spoiler",
+        elementText: '"Холодные" письма. Вы сами пишите HR впервые.',
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[10].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        next: schemeNodeIds[11].schemeNodeId,
+        elementType: "button",
+        elementText: "LinkedIn",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[10].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        next: schemeNodeIds[12].schemeNodeId,
+        elementType: "button",
+        elementText: "Telegram",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[10].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        next: schemeNodeIds[13].schemeNodeId,
+        elementType: "button",
+        elementText: "Кадровое агенство",
+      },
+    ];
+    const schemeTwoCard11 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[11].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "NOTE: Форма обращения до 300 символов (строгое требование LinkedIn).",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[11].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Здравствуйте! Меня зовут _______. Буду рад(а) присоединиться к вашему кругу профессиональных контактов.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[11].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Сейчас я приступил(а) к поиску работы и открыт(а) к предложениям на позицию ___________ разработчик.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[11].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "С удовольствием пообщаюсь с Вами по открытым вакансиям в вашей компании.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[11].schemeNodeId,
+        elementType: "text",
+        elementText: "С уважением, (Ваше имя).",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[11].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Если HR-рекрутер вышла с вами на связь и у них есть открытые вакансии, то вы продолжаете коммуникацию и договариваетесь о собеседовании",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[11].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        next: schemeNodeIds[14].schemeNodeId,
+        elementType: "button",
+        elementText: "Далее",
+      },
+    ];
+    const schemeTwoCard12 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[12].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Здравствуйте! Меня зовут____. Заинтересовала ваша вакансия ____.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[12].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Владею основными технологиями web-разработки: JS, HTML, CSS, Node.js, Express, PostgreSQL,Sequelize, React, Redux.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[12].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Имею опыт реализации разноплановых проектов, посмотреть которые можно по ссылке:...",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[12].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Всегда ищу оптимальные пути решения, альтернативные варианты улучшения качества продукта.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[12].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Интересуюсь новыми технологиями, свободное время посвящаю изучению нового стека.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[12].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Буду рад обсудить подробнее свой опыт на собеседовании, когда вам будет удобнее созвониться?",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[12].schemeNodeId,
+        elementType: "text",
+        elementText: "Мои контакты: (телефон:..., e-mail:... telegram:...)",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[12].schemeNodeId,
+        elementType: "text",
+        elementText: "С уважением, (Ваше имя).",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[12].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Если HR-рекрутер вышла с вами на связь и у них есть открытые вакансии, то вы продолжаете коммуникацию и договариваетесь о собеседовании",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[14].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        next: schemeNodeIds[14].schemeNodeId,
+        elementType: "button",
+        elementText: "Далее",
+      },
+    ];
+    const schemeTwoCard13 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[13].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Здравствуйте! Прошу рассмотреть мою кандидатуру на открытые в Вашем кадровом агентстве вакансии в сфере разработки ПО.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[13].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "В настоящий момент ориентирован(а) на работу в крупных российских и иностранных компаниях.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[13].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Возможные должности: Frontend-разработчик, Fullstack-разработчик.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[13].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "На данный момент нахожусь в г. __________, готов к переезду в г. ___________. Ориентируюсь на доход от _________ тыс. руб. (без учета премий).",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[13].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "В приложении Вы найдете мое резюме, буду рад(а) предоставить любую дополнительную информацию, необходимую для рассмотрения моей кандидатуры.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[13].schemeNodeId,
+        elementType: "text",
+        elementText: "С уважением, _____________",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[13].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Если HR-рекрутер вышла с вами на связь и у них есть открытые вакансии, то вы продолжаете коммуникацию и договариваетесь о собеседовании",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[14].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        next: schemeNodeIds[14].schemeNodeId,
+        elementType: "button",
+        elementText: "Далее",
+      },
+    ];
+    const schemeTwoCard14 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[14].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Вы договорились о звонке и в концы Звонка вы задаете рекрутеруHR вопросы:",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[14].schemeNodeId,
+        elementType: "text",
+        elementText: "Какой следующий этап общения с компанией?",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[14].schemeNodeId,
+        elementType: "text",
+        elementText: "Когда рекрутерHR даст об этом знать?",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[14].schemeNodeId,
+        elementType: "text",
+        elementText: "Не возражает ли рекрутерHR, если вы напомните о себе?",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[14].schemeNodeId,
+        elementType: "text",
+        elementText: "Какие этапы собеседований (сколько всего этапов)?",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[14].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        next: schemeNodeIds[15].schemeNodeId,
+        elementType: "button",
+        elementText: "Далее",
+      },
+    ];
+    const schemeTwoCard15 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[15].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "После общения/собеса вы получаете следующий фидбек от рекрутера:",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[15].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        next: schemeNodeIds[16].schemeNodeId,
+        elementType: "button",
+        elementText: "Рекрутер не выходит на связь",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[15].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        next: schemeNodeIds[20].schemeNodeId,
+        elementType: "button",
+        elementText: "Рекрутер вышла с фидбеком, и это отказ(((",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[15].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        next: schemeNodeIds[22].schemeNodeId,
+        elementType: "button",
+        elementText: "Рекрутер вышла с фидбеком, и это оффер!!!",
+      },
+    ];
+    const schemeTwoCard16 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[16].schemeNodeId,
+        elementType: "text",
+        elementText: "Что написать рекрутеру, который не выходит на связь:",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[16].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        next: schemeNodeIds[17].schemeNodeId,
+        elementType: "button",
+        elementText: "В обычном случае",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[16].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        next: schemeNodeIds[18].schemeNodeId,
+        elementType: "button",
+        elementText: "Если очень хотите в эту компанию",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[16].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        next: schemeNodeIds[19].schemeNodeId,
+        elementType: "button",
+        elementText: "Если у вас уже есть другой оффер, и вы торопитесь",
+      },
+    ];
+    const schemeTwoCard17 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[17].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Здравствуйте! Уточните, пожалуйста, есть ли уже решение по моей кандидатуре?",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[17].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Если решения нет, то уточните когда вам можно будет вернуться за обратной связью. Например:",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[17].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Благодарю за ответ. Сообщите, пожалуйста, когда мне ожидать обратной связи по моей кандидатуре?",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[17].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "NOTE: если рекрутер обещал вам дать ответ в четверг, не надо писать в середине рабочего дня четверга что-то вроде:”",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[17].schemeNodeId,
+        elementType: "text",
+        elementText: "«Неужели даже отрицательного фидбэка не заслуживаю?",
+      },
+    ];
+    const schemeTwoCard18 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[18].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Здравствуйте! Дело в том, что до (день недели или число) я должен дать ответ по офферу, который получил на днях,",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[18].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "однако ваша компания для меня приоритетна и я бы хотел пройти дальнейшие этапы как можно скорее.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[18].schemeNodeId,
+        elementType: "text",
+        elementText: "А дальше:",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[18].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Подскажите, получится с ближайшее время провести со мной (техническое) собеседование?",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[18].schemeNodeId,
+        elementType: "text",
+        elementText: "или",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[18].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Подскажите, сможете ли вы до пятницы вернуться с ответом по моей кандидатуре?",
+      },
+    ];
+    const schemeTwoCard19 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[19].schemeNodeId,
+        elementType: "text",
+        elementText: "Здравствуйте _____.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[19].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Пожалуйста, уточните, каковы дальнейшие этапы собеседования?",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[19].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Мне сегодня сделали оффер, нужно дать ответ до (день недели или число), хотел бы успеть сравнить вакансии.",
+      },
+    ];
+    const schemeTwoCard20 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[20].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Не расстраивайтесь!  Поблагодарите рекрутера за уделенное время и внимание к вам. Например:",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[20].schemeNodeId,
+        elementType: "text",
+        elementText: "Здравствуйте (Имя HR-менеджера).",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[20].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Спасибо за обратную связь, уделенное моей кандидатуре время и приятный опыт собеседования!",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[20].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Жаль, что не получится посотрудничать по данной вакансии. Но я продолжаю искать работу в этой сфере.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[20].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "И мне был бы очень полезен ваш взгляд как профессионала, почему я получил(а) отказ.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[20].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Хочу разобраться, над чем стоит поработать, какие навыки подтянуть.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[20].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Я сейчас активно ищу работу и буду благодарен(на), если вы порекомендуете мою кандидатуру коллегам.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[20].schemeNodeId,
+        elementType: "text",
+        elementText: "Буду признателен(льна), если сможете ответить.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[20].schemeNodeId,
+        elementType: "text",
+        elementText: "(Ваше имя).",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[14].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        next: schemeNodeIds[21].schemeNodeId,
+        elementType: "button",
+        elementText: "Если сложились хорошие отношения с HR",
+      },
+    ];
+    const schemeTwoCard21 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[21].schemeNodeId,
+        elementType: "text",
+        elementText:
+          'В случае, если с hr случилась "взаимная любовь" написать:',
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[21].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Хочу поделиться с вами положительным впечатлением. После собеседования я понял(а), что ваша компания - это та самая компания мечты.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[21].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Если у вас что-то изменится или откроется еще одна вакансия, то я буду очень счастлив(а) принять участие в отборе на вакансию и пройти собеседование.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[21].schemeNodeId,
+        elementType: "text",
+        elementText: "(Ваше имя).",
+      },
+    ];
+    const schemeTwoCard22 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[22].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Рекрутер вышла к вам с фидбэком после тех. собеса. И это оффер!!!",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[22].schemeNodeId,
+        elementType: "spoiler",
+        elementText: "Срочно писать вашему карьерному коучу!!!!!!!",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[22].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "NOTE: коуч поможет вам понять что ОК или НЕ ОК в оффере, подскажет как поторговаться по условиям и конечно разделит с вами вашу победу",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[22].schemeNodeId,
+        elementType: "text",
+        elementText: "Вы  решили принять оффер?",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[23].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        next: schemeNodeIds[23].schemeNodeId,
+        elementType: "button",
+        elementText: "Да!",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[22].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        next: schemeNodeIds[24].schemeNodeId,
+        elementType: "button",
+        elementText: "Да, но вас не устраивают условия",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[22].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        next: schemeNodeIds[25].schemeNodeId,
         elementType: "button",
         elementText: "Нет",
+      },
+    ];
+    const schemeTwoCard23 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[23].schemeNodeId,
+        elementType: "text",
+        elementText: "Здравствуйте (Имя HR-менеджера).",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[23].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Спасибо за предложение присоединиться к команде (название компании). Ознакомившись с условиями найма, я с радостью принимаю ваше предложение.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[23].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Размер оплаты труда и прочие условия, указанные в оффере, полностью меня устраивают.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[23].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Готов(а) приступить к работе с (числомесяц) и с нетерпением жду своего первого дня в вашей компании.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[23].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Если у вас есть ко мне дополнительные вопросы, готов(а) ответить в удобное вам время.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[23].schemeNodeId,
+        elementType: "text",
+        elementText: "С уважением, (Ваше имя).",
+      },
+    ];
+    const schemeTwoCard24 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[24].schemeNodeId,
+        elementType: "text",
+        elementText: "СМОТРИ БЛОК-СХЕМУ ПО ПЕРЕГОВОРАМ",
+      },
+    ];
+    const schemeTwoCard25 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[25].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "NOTE: чем дольше вы общаетесь с компанией, тем более обоснованным должен быть ваш отказ.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[25].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Главное ― избегать исчезновения из коммуникации с компанией без объяснения причин.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[25].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Это может сыграть во вред вашей репутации на рынке труда.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[25].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        next: schemeNodeIds[26].schemeNodeId,
+        elementType: "button",
+        elementText: "Отказ без объяснения причины",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[25].schemeNodeId,
+        schemeId: schemeIds[1].schemeId,
+        next: schemeNodeIds[27].schemeNodeId,
+        elementType: "button",
+        elementText: "Отказ с объяснением причины",
+      },
+    ];
+    const schemeTwoCard26 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[26].schemeNodeId,
+        elementType: "text",
+        elementText: "Здравствуйте (Имя HR-менеджера).",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[26].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Спасибо за предложение присоединиться к команде (название компании).",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[26].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Я ценю время, которое вы потратили на то, чтобы провести собеседование и ответить на все мои вопросы.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[26].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Мне нелегко далось это решение, но я вынужден(а) отказаться от вашего предложения.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[26].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Желаю вам успехов в поиске подходящего кандидата на эту должность. Всего наилучшего вам и (название компании)!",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[26].schemeNodeId,
+        elementType: "text",
+        elementText: "С уважением, (Ваше имя).",
+      },
+    ];
+    const schemeTwoCard27 = [
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[27].schemeNodeId,
+        elementType: "text",
+        elementText: "Здравствуйте (Имя HR-менеджера).",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[27].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Спасибо за предложение стать частью (название компании) в роли (название позиции).",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[27].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Я ценю предоставленную возможность и ваш интерес к моей кандидатуре.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[27].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "К сожалению, я выбрал(а) позицию в другой компании. На данном этапе она лучше всего соответствует моим карьерным ожиданиям и целям.",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[27].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Еще раз спасибо за ваше время и приятный опыт собеседования!",
+      },
+      {
+        SchemeSchemeId: schemeIds[1].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[27].schemeNodeId,
+        elementType: "text",
+        elementText: "С уважением, (Ваше имя).",
       },
     ];
     await queryInterface.bulkInsert(
@@ -530,11 +1472,44 @@ module.exports = {
         schemeOneCard9,
         schemeOneCard10,
         schemeOneCard11,
+        schemeTwoCard0,
+        schemeTwoCard1,
+        schemeTwoCard2,
+        schemeTwoCard3,
+        schemeTwoCard4,
+        schemeTwoCard5,
+        schemeTwoCard6,
+        schemeTwoCard7,
+        schemeTwoCard8,
+        schemeTwoCard9,
+        schemeTwoCard10,
+        schemeTwoCard11,
+        schemeTwoCard12,
+        schemeTwoCard13,
+        schemeTwoCard14,
+        schemeTwoCard15,
+        schemeTwoCard16,
+        schemeTwoCard17,
+        schemeTwoCard18,
+        schemeTwoCard19,
+        schemeTwoCard20,
+        schemeTwoCard21,
+        schemeTwoCard22,
+        schemeTwoCard23,
+        schemeTwoCard24,
+        schemeTwoCard25,
+        schemeTwoCard26,
+        schemeTwoCard27,
       ]
-        .flat()
         .map((el, i) => {
-          return el;
-        }),
+          if (i <= 11) return el;
+          return el.map((item) => {
+            if (item.next) item.next = item.next + 12;
+            item.SchemeNodeSchemeNodeId = item.SchemeNodeSchemeNodeId + 12;
+            return item;
+          });
+        })
+        .flat(),
       {}
     );
   },

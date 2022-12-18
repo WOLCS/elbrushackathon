@@ -71,7 +71,7 @@ const start = async () => {
       if (msg.data === "meme") {
         await bot.sendMessage(chatId, "Лови мем!");
         const randomNumber = Math.floor(Math.random() * 22) + 1;
-        return bot.sendPhoto(chatId, `./static/memes/${randomNumber}.png`);
+        return bot.sendPhoto(chatId, `./static/memes/${randomNumber}.jpg`);
       }
 
       return bot.sendMessage(
