@@ -1,10 +1,11 @@
-import { Spoiler as BaseSpoiler } from '@mantine/core'
-import { Text } from './Text'
+import React from 'react'
+import { Text } from '@mantine/core';
+import { Spoiler as MantineSpoiler} from '@mantine/core';
+export const Spoiler = ({elementText}) => {
+  return (
+    <MantineSpoiler maxHeight={5} showLabel="Подробнее" hideLabel="Скрыть">
+<Text fz="xl">{elementText}</Text>
+</MantineSpoiler>
 
-export const Spoiler = ({ children }) => {
-   return (
-      <BaseSpoiler maxHeight={5} showLabel="Show more" hideLabel="Hide">
-         <Text fz="xl">{children}</Text>
-      </BaseSpoiler>
-   )
+  )
 }

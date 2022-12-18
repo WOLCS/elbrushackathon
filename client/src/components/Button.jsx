@@ -3,8 +3,8 @@ import { Button as BaseButton } from '@mantine/core'
 
 export const Button = ({ children, nextSchemeNodeId }) => {
    return (
-      <Link to={'/' + nextSchemeNodeId}>
-         <BaseButton fullWidth variant="gradient" gradient={{ from: 'indigo', to: 'cyan' }}>
+      <Link to={`/${nextSchemeNodeId}`}>
+         <MantineButton className='categoryButton'>
             {children}
          </BaseButton>
       </Link>
