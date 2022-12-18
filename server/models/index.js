@@ -27,7 +27,7 @@ const Element = sequelize.define("Elements", {
   elementText: { type: DataTypes.STRING, allowNull: false },
   elementLink: { type: DataTypes.STRING },
   schemeId: { type: DataTypes.INTEGER },
-  schemeNodeId: { type: DataTypes.INTEGER },
+  next: { type: DataTypes.INTEGER },
 });
 
 const User = sequelize.define("Users", {

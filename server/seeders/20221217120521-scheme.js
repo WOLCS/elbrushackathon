@@ -21,7 +21,7 @@ module.exports = {
       {}
     );
     const schemes = await queryInterface.sequelize.query(
-      'SELECT "Schemes"."schemeId" from "Schemes'
+      'SELECT "Schemes"."schemeId" from "Schemes"'
     );
     const schemeIds = schemes[0];
     const schemeNodesArray = [...new Array(12), ...new Array(28)].map(
@@ -40,7 +40,7 @@ module.exports = {
     );
     await queryInterface.bulkInsert("SchemeNodes", schemeNodesArray, {});
     const schemeNodes = await queryInterface.sequelize.query(
-      'SELECT "SchemeNodes"."schemeNodeId" from "SchemeNodes'
+      'SELECT "SchemeNodes"."schemeNodeId" from "SchemeNodes"'
     );
     const schemeNodeIds = schemeNodes[0];
     const schemeOneCard0 = [
@@ -174,9 +174,16 @@ module.exports = {
       {
         SchemeSchemeId: schemeIds[0].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[5].schemeNodeId,
-        elementType: "spoiler",
+        elementType: "text",
         elementText:
-          "Скажите, что вам нужно время обдумать их предложение и назовите срок, когда вы вернетесь с ответом (в идеале не больше 3-4 рабочих дней). Не принимайте оффер сразу же так как первый оффер от любой компании ВСЕГДА минимален по сумме, он только открывает пространство переговоров по зарплате.",
+          "Скажите, что вам нужно время обдумать их предложение и назовите срок, когда вы вернетесь с ответом (в идеале не больше 3-4 рабочих дней).",
+      },
+      {
+        SchemeSchemeId: schemeIds[0].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[5].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Не принимайте оффер сразу же так как первый оффер от любой компании ВСЕГДА минимален по сумме, он только открывает пространство переговоров по зарплате.",
       },
       {
         SchemeSchemeId: schemeIds[0].schemeId,
@@ -221,9 +228,16 @@ module.exports = {
       {
         SchemeSchemeId: schemeIds[0].schemeId,
         SchemeNodeSchemeNodeId: schemeNodeIds[6].schemeNodeId,
-        elementType: "spoiler",
+        elementType: "text",
         elementText:
-          "Если вы получили оффер, на который просят ответить за короткое время (24/48/72 часа), а вы не готовы так быстро принять решение/ждете информации от других работодателей. Не ведитесь на срочность и не переживайте - это просто способ работодателя надавить и поскорее закрыть вакансию.",
+          "Если вы получили оффер, на который просят ответить за короткое время (24/48/72 часа), а вы не готовы так быстро принять решение/ждете информации от других работодателей.",
+      },
+      {
+        SchemeSchemeId: schemeIds[0].schemeId,
+        SchemeNodeSchemeNodeId: schemeNodeIds[6].schemeNodeId,
+        elementType: "text",
+        elementText:
+          "Не ведитесь на срочность и не переживайте - это просто способ работодателя надавить и поскорее закрыть вакансию.",
       },
       {
         SchemeSchemeId: schemeIds[0].schemeId,
@@ -243,7 +257,7 @@ module.exports = {
         SchemeNodeSchemeNodeId: schemeNodeIds[6].schemeNodeId,
         elementType: "text",
         elementText:
-          "так как нахожусь на финальной стадии переговоров с другими компаниями и этот процесс займет еще примерно неделю. Мне понадобится больше времени, чтобы принять взвешенное решение.",
+          "так как нахожусь на финальной стадии переговоров с другими компаниями и этот процесс займет еще примерно неделю. Мне понадобится больше времени, чтобы принять взвешенное решение",
       },
       {
         SchemeSchemeId: schemeIds[0].schemeId,
@@ -375,7 +389,7 @@ module.exports = {
         SchemeNodeSchemeNodeId: schemeNodeIds[11].schemeNodeId,
         elementType: "text",
         elementText:
-          "Я внимательно ознакомился(лась) с вашим предложением. Мне нравится ваша компания/проект/команда и я заинтересован в сотрудничестве с вами, однако меня смущает уровень заработной платы. ",
+          "Я внимательно ознакомился(лась) с вашим предложением. Мне нравится ваша компания/проект/команда и я заинтересован в сотрудничестве с вами, однако меня смущает уровень заработной платы.",
       },
       {
         SchemeSchemeId: schemeIds[0].schemeId,
