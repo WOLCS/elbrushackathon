@@ -14,7 +14,7 @@ async function authenticate({ login, password }) {
     },
     raw: true,
   });
-
+  if (!user) throw new UnAuthorizedError("Incorrect login or password");
   const pass = await bcrypt.compare(password, user.password);
 
   if (user && pass) {
